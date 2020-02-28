@@ -1,0 +1,63 @@
+server:
+  port: 10000
+#  ssl:
+#    key-store: 1984199_shalny.com.pfx
+#    key-store-password: 40v5UlUH
+#    keystoreType: PKCS12
+goldcard:
+  url: http://120.55.14.102/api/v2/collect/meter/1013
+spring:
+  batch.job.enabled: false
+  #  profiles:
+#    active: dev
+  datasource:
+    #   数据源基本配置
+    username: sa
+    password: zw@18721841411
+    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+    url: jdbc:sqlserver://180.168.122.90:1433;databaseName=KS_DataBase3.0_CS
+    type: com.alibaba.druid.pool.DruidDataSource
+    #   数据源其他配置
+    initialSize: 5
+    minIdle: 5
+    maxActive: 20
+    maxWait: 60000
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 300000
+    # validationQuery: SELECT 1 FROM DUAL
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    poolPreparedStatements: true
+    #   配置监控统计拦截的filters，去掉后监控界面sql无法统计，'wall'用于防火墙
+    filters: stat,wall,log4j
+    maxPoolPreparedStatementPerConnectionSize: 20
+    useGlobalDataSourceStat: true
+    connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=500
+  h2:
+    console:
+      enabled: true
+  batch:
+    initialize-schema: always
+    schema: classpath:schema-sqlserver.sql
+
+
+#    schema:
+#      - classpath:sql/department.sql
+#      - classpath:sql/employee.sql
+mybatis:
+  # 指定全局配置文件位置
+  config-location: classpath:mybatis/mybatis-config.xml
+  # 指定sql映射文件位置
+  mapper-locations: classpath:com/ks/qianjiang/*.xml
+
+#    schema:
+#      - classpath:sql/department.sql
+#      - classpath:sql/employee.sql
+logging:
+  level:
+    com.ks.qianjiang: trace
+  file: springboot.log
+  pattern:
+    console: "%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"
+  #logging.file=G:/springboot.log 日志文件

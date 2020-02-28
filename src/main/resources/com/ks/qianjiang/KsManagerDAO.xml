@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ks.qianjiang.mapper.KsManagerDAO">
+  <resultMap id="BaseResultMap" type="com.ks.qianjiang.model.KsManager">
+    <id column="ManagerID" jdbcType="BIGINT" property="managerid" />
+    <result column="ManagerName" jdbcType="NVARCHAR" property="managername" />
+    <result column="Password" jdbcType="NVARCHAR" property="password" />
+    <result column="MobilePhone" jdbcType="NVARCHAR" property="mobilephone" />
+    <result column="QQ" jdbcType="NVARCHAR" property="qq" />
+    <result column="UserEmail" jdbcType="NVARCHAR" property="useremail" />
+    <result column="Idcard" jdbcType="NVARCHAR" property="idcard" />
+    <result column="RealName" jdbcType="NVARCHAR" property="realname" />
+    <result column="LoginIP" jdbcType="NVARCHAR" property="loginip" />
+    <result column="LoginTime" jdbcType="TIMESTAMP" property="logintime" />
+    <result column="LoginNum" jdbcType="BIGINT" property="loginnum" />
+    <result column="RoleID" jdbcType="BIGINT" property="roleid" />
+    <result column="WebSiteID" jdbcType="BIGINT" property="websiteid" />
+    <result column="AddTime" jdbcType="TIMESTAMP" property="addtime" />
+    <result column="AddUser" jdbcType="NVARCHAR" property="adduser" />
+    <result column="Status" jdbcType="SMALLINT" property="status" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ManagerID, ManagerName, Password, MobilePhone, QQ, UserEmail, Idcard, RealName,
+    LoginIP, LoginTime, LoginNum, RoleID, WebSiteID, AddTime, AddUser, Status
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from [KS_DataBase3.0_CS].dbo.KS_Manager
+    where ManagerID = #{managerid,jdbcType=BIGINT}
+  </select>
+
+  <select id="selectByUserAndPassword"  resultType="java.lang.Integer">
+        select count(*) as total from KS_Manager where 1=1
+        <if test="ManagerName != null and ManagerName != ''" >
+            and ManagerName =  #{ManagerName,jdbcType=VARCHAR}
+        </if>
+        <if test="Password != null and Password != ''" >
+          and Password =  #{Password,jdbcType=VARCHAR}
+        </if>
+  </select>
+
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from [KS_DataBase3.0_CS]..KS_Manager
+    where ManagerID = #{managerid,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.ks.qianjiang.model.KsManager">
+    insert into KS_DataBase3.0_CS..KS_Manager (ManagerID, ManagerName, "Password", 
+      MobilePhone, QQ, UserEmail, 
+      Idcard, RealName, LoginIP, 
+      LoginTime, LoginNum, RoleID, 
+      WebSiteID, AddTime, AddUser, 
+      "Status")
+    values (#{managerid,jdbcType=BIGINT}, #{managername,jdbcType=NVARCHAR}, #{password,jdbcType=NVARCHAR}, 
+      #{mobilephone,jdbcType=NVARCHAR}, #{qq,jdbcType=NVARCHAR}, #{useremail,jdbcType=NVARCHAR}, 
+      #{idcard,jdbcType=NVARCHAR}, #{realname,jdbcType=NVARCHAR}, #{loginip,jdbcType=NVARCHAR}, 
+      #{logintime,jdbcType=TIMESTAMP}, #{loginnum,jdbcType=BIGINT}, #{roleid,jdbcType=BIGINT}, 
+      #{websiteid,jdbcType=BIGINT}, #{addtime,jdbcType=TIMESTAMP}, #{adduser,jdbcType=NVARCHAR}, 
+      #{status,jdbcType=SMALLINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.ks.qianjiang.model.KsManager">
+    insert into KS_DataBase3.0_CS..KS_Manager
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="managerid != null">
+        ManagerID,
+      </if>
+      <if test="managername != null">
+        ManagerName,
+      </if>
+      <if test="password != null">
+        "Password",
+      </if>
+      <if test="mobilephone != null">
+        MobilePhone,
+      </if>
+      <if test="qq != null">
+        QQ,
+      </if>
+      <if test="useremail != null">
+        UserEmail,
+      </if>
+      <if test="idcard != null">
+        Idcard,
+      </if>
+      <if test="realname != null">
+        RealName,
+      </if>
+      <if test="loginip != null">
+        LoginIP,
+      </if>
+      <if test="logintime != null">
+        LoginTime,
+      </if>
+      <if test="loginnum != null">
+        LoginNum,
+      </if>
+      <if test="roleid != null">
+        RoleID,
+      </if>
+      <if test="websiteid != null">
+        WebSiteID,
+      </if>
+      <if test="addtime != null">
+        AddTime,
+      </if>
+      <if test="adduser != null">
+        AddUser,
+      </if>
+      <if test="status != null">
+        "Status",
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="managerid != null">
+        #{managerid,jdbcType=BIGINT},
+      </if>
+      <if test="managername != null">
+        #{managername,jdbcType=NVARCHAR},
+      </if>
+      <if test="password != null">
+        #{password,jdbcType=NVARCHAR},
+      </if>
+      <if test="mobilephone != null">
+        #{mobilephone,jdbcType=NVARCHAR},
+      </if>
+      <if test="qq != null">
+        #{qq,jdbcType=NVARCHAR},
+      </if>
+      <if test="useremail != null">
+        #{useremail,jdbcType=NVARCHAR},
+      </if>
+      <if test="idcard != null">
+        #{idcard,jdbcType=NVARCHAR},
+      </if>
+      <if test="realname != null">
+        #{realname,jdbcType=NVARCHAR},
+      </if>
+      <if test="loginip != null">
+        #{loginip,jdbcType=NVARCHAR},
+      </if>
+      <if test="logintime != null">
+        #{logintime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="loginnum != null">
+        #{loginnum,jdbcType=BIGINT},
+      </if>
+      <if test="roleid != null">
+        #{roleid,jdbcType=BIGINT},
+      </if>
+      <if test="websiteid != null">
+        #{websiteid,jdbcType=BIGINT},
+      </if>
+      <if test="addtime != null">
+        #{addtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="adduser != null">
+        #{adduser,jdbcType=NVARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=SMALLINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ks.qianjiang.model.KsManager">
+    update KS_DataBase3.0_CS..KS_Manager
+    <set>
+      <if test="managername != null">
+        ManagerName = #{managername,jdbcType=NVARCHAR},
+      </if>
+      <if test="password != null">
+        "Password" = #{password,jdbcType=NVARCHAR},
+      </if>
+      <if test="mobilephone != null">
+        MobilePhone = #{mobilephone,jdbcType=NVARCHAR},
+      </if>
+      <if test="qq != null">
+        QQ = #{qq,jdbcType=NVARCHAR},
+      </if>
+      <if test="useremail != null">
+        UserEmail = #{useremail,jdbcType=NVARCHAR},
+      </if>
+      <if test="idcard != null">
+        Idcard = #{idcard,jdbcType=NVARCHAR},
+      </if>
+      <if test="realname != null">
+        RealName = #{realname,jdbcType=NVARCHAR},
+      </if>
+      <if test="loginip != null">
+        LoginIP = #{loginip,jdbcType=NVARCHAR},
+      </if>
+      <if test="logintime != null">
+        LoginTime = #{logintime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="loginnum != null">
+        LoginNum = #{loginnum,jdbcType=BIGINT},
+      </if>
+      <if test="roleid != null">
+        RoleID = #{roleid,jdbcType=BIGINT},
+      </if>
+      <if test="websiteid != null">
+        WebSiteID = #{websiteid,jdbcType=BIGINT},
+      </if>
+      <if test="addtime != null">
+        AddTime = #{addtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="adduser != null">
+        AddUser = #{adduser,jdbcType=NVARCHAR},
+      </if>
+      <if test="status != null">
+        "Status" = #{status,jdbcType=SMALLINT},
+      </if>
+    </set>
+    where ManagerID = #{managerid,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ks.qianjiang.model.KsManager">
+    update KS_DataBase3.0_CS..KS_Manager
+    set ManagerName = #{managername,jdbcType=NVARCHAR},
+      "Password" = #{password,jdbcType=NVARCHAR},
+      MobilePhone = #{mobilephone,jdbcType=NVARCHAR},
+      QQ = #{qq,jdbcType=NVARCHAR},
+      UserEmail = #{useremail,jdbcType=NVARCHAR},
+      Idcard = #{idcard,jdbcType=NVARCHAR},
+      RealName = #{realname,jdbcType=NVARCHAR},
+      LoginIP = #{loginip,jdbcType=NVARCHAR},
+      LoginTime = #{logintime,jdbcType=TIMESTAMP},
+      LoginNum = #{loginnum,jdbcType=BIGINT},
+      RoleID = #{roleid,jdbcType=BIGINT},
+      WebSiteID = #{websiteid,jdbcType=BIGINT},
+      AddTime = #{addtime,jdbcType=TIMESTAMP},
+      AddUser = #{adduser,jdbcType=NVARCHAR},
+      "Status" = #{status,jdbcType=SMALLINT}
+    where ManagerID = #{managerid,jdbcType=BIGINT}
+  </update>
+</mapper>

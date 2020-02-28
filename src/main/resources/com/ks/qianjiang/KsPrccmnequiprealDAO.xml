@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ks.qianjiang.mapper.KsPrccmnequiprealDAO">
+  <resultMap id="BaseResultMap" type="com.ks.qianjiang.model.KsPrccmnequipreal">
+    <id column="PrcCmnEquipRealID" jdbcType="INTEGER" property="prccmnequiprealid" />
+    <result column="BrandName" jdbcType="VARCHAR" property="brandname" />
+    <result column="ClassID" jdbcType="INTEGER" property="classid" />
+    <result column="ClassName" jdbcType="VARCHAR" property="classname" />
+    <result column="ID" jdbcType="INTEGER" property="id" />
+    <result column="Name" jdbcType="VARCHAR" property="name" />
+    <result column="DistrictName" jdbcType="VARCHAR" property="districtname" />
+    <result column="SiteID" jdbcType="INTEGER" property="siteid" />
+    <result column="SiteName" jdbcType="VARCHAR" property="sitename" />
+    <result column="RamCode" jdbcType="VARCHAR" property="ramcode" />
+    <result column="EquipMentName" jdbcType="VARCHAR" property="equipmentname" />
+    <result column="FlowRange" jdbcType="VARCHAR" property="flowrange" />
+    <result column="EquipMentIDReal" jdbcType="INTEGER" property="equipmentidreal" />
+    <result column="DataSource" jdbcType="VARCHAR" property="datasource" />
+    <result column="AddTime" jdbcType="VARCHAR" property="addtime" />
+    <result column="EquipMentID" jdbcType="INTEGER" property="equipmentid" />
+    <result column="P" jdbcType="DOUBLE" property="p" />
+    <result column="BatteryVoltage" jdbcType="DOUBLE" property="batteryvoltage" />
+    <result column="OnlineStatus" jdbcType="VARCHAR" property="onlinestatus" />
+    <result column="ColTime" jdbcType="VARCHAR" property="coltime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    PrcCmnEquipRealID, BrandName, ClassID, ClassName, ID, "Name", DistrictName, SiteID, 
+    SiteName, RamCode, EquipMentName, FlowRange, EquipMentIDReal, DataSource, AddTime, 
+    EquipMentID, P, BatteryVoltage, OnlineStatus, ColTime
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from KS_DataBase3.0_CS..KS_PrcCmnEquipReal
+    where PrcCmnEquipRealID = #{prccmnequiprealid,jdbcType=INTEGER}
+  </select>
+
+  <select id="selectAll"  resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from [KS_DataBase3.0_CS]..KS_PrcCmnEquipReal
+  </select>
+
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from KS_DataBase3.0_CS..KS_PrcCmnEquipReal
+    where PrcCmnEquipRealID = #{prccmnequiprealid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.ks.qianjiang.model.KsPrccmnequipreal">
+    insert into KS_DataBase3.0_CS..KS_PrcCmnEquipReal (PrcCmnEquipRealID, BrandName, ClassID, 
+      ClassName, ID, "Name", 
+      DistrictName, SiteID, SiteName, 
+      RamCode, EquipMentName, FlowRange, 
+      EquipMentIDReal, DataSource, AddTime, 
+      EquipMentID, P, BatteryVoltage, 
+      OnlineStatus, ColTime)
+    values (#{prccmnequiprealid,jdbcType=INTEGER}, #{brandname,jdbcType=VARCHAR}, #{classid,jdbcType=INTEGER}, 
+      #{classname,jdbcType=VARCHAR}, #{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, 
+      #{districtname,jdbcType=VARCHAR}, #{siteid,jdbcType=INTEGER}, #{sitename,jdbcType=VARCHAR}, 
+      #{ramcode,jdbcType=VARCHAR}, #{equipmentname,jdbcType=VARCHAR}, #{flowrange,jdbcType=VARCHAR}, 
+      #{equipmentidreal,jdbcType=INTEGER}, #{datasource,jdbcType=VARCHAR}, #{addtime,jdbcType=VARCHAR}, 
+      #{equipmentid,jdbcType=INTEGER}, #{p,jdbcType=DOUBLE}, #{batteryvoltage,jdbcType=DOUBLE}, 
+      #{onlinestatus,jdbcType=VARCHAR}, #{coltime,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.ks.qianjiang.model.KsPrccmnequipreal">
+    insert into KS_DataBase3.0_CS..KS_PrcCmnEquipReal
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="prccmnequiprealid != null">
+        PrcCmnEquipRealID,
+      </if>
+      <if test="brandname != null">
+        BrandName,
+      </if>
+      <if test="classid != null">
+        ClassID,
+      </if>
+      <if test="classname != null">
+        ClassName,
+      </if>
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="name != null">
+        "Name",
+      </if>
+      <if test="districtname != null">
+        DistrictName,
+      </if>
+      <if test="siteid != null">
+        SiteID,
+      </if>
+      <if test="sitename != null">
+        SiteName,
+      </if>
+      <if test="ramcode != null">
+        RamCode,
+      </if>
+      <if test="equipmentname != null">
+        EquipMentName,
+      </if>
+      <if test="flowrange != null">
+        FlowRange,
+      </if>
+      <if test="equipmentidreal != null">
+        EquipMentIDReal,
+      </if>
+      <if test="datasource != null">
+        DataSource,
+      </if>
+      <if test="addtime != null">
+        AddTime,
+      </if>
+      <if test="equipmentid != null">
+        EquipMentID,
+      </if>
+      <if test="p != null">
+        P,
+      </if>
+      <if test="batteryvoltage != null">
+        BatteryVoltage,
+      </if>
+      <if test="onlinestatus != null">
+        OnlineStatus,
+      </if>
+      <if test="coltime != null">
+        ColTime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="prccmnequiprealid != null">
+        #{prccmnequiprealid,jdbcType=INTEGER},
+      </if>
+      <if test="brandname != null">
+        #{brandname,jdbcType=VARCHAR},
+      </if>
+      <if test="classid != null">
+        #{classid,jdbcType=INTEGER},
+      </if>
+      <if test="classname != null">
+        #{classname,jdbcType=VARCHAR},
+      </if>
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="districtname != null">
+        #{districtname,jdbcType=VARCHAR},
+      </if>
+      <if test="siteid != null">
+        #{siteid,jdbcType=INTEGER},
+      </if>
+      <if test="sitename != null">
+        #{sitename,jdbcType=VARCHAR},
+      </if>
+      <if test="ramcode != null">
+        #{ramcode,jdbcType=VARCHAR},
+      </if>
+      <if test="equipmentname != null">
+        #{equipmentname,jdbcType=VARCHAR},
+      </if>
+      <if test="flowrange != null">
+        #{flowrange,jdbcType=VARCHAR},
+      </if>
+      <if test="equipmentidreal != null">
+        #{equipmentidreal,jdbcType=INTEGER},
+      </if>
+      <if test="datasource != null">
+        #{datasource,jdbcType=VARCHAR},
+      </if>
+      <if test="addtime != null">
+        #{addtime,jdbcType=VARCHAR},
+      </if>
+      <if test="equipmentid != null">
+        #{equipmentid,jdbcType=INTEGER},
+      </if>
+      <if test="p != null">
+        #{p,jdbcType=DOUBLE},
+      </if>
+      <if test="batteryvoltage != null">
+        #{batteryvoltage,jdbcType=DOUBLE},
+      </if>
+      <if test="onlinestatus != null">
+        #{onlinestatus,jdbcType=VARCHAR},
+      </if>
+      <if test="coltime != null">
+        #{coltime,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ks.qianjiang.model.KsPrccmnequipreal">
+    update KS_DataBase3.0_CS..KS_PrcCmnEquipReal
+    <set>
+      <if test="brandname != null">
+        BrandName = #{brandname,jdbcType=VARCHAR},
+      </if>
+      <if test="classid != null">
+        ClassID = #{classid,jdbcType=INTEGER},
+      </if>
+      <if test="classname != null">
+        ClassName = #{classname,jdbcType=VARCHAR},
+      </if>
+      <if test="id != null">
+        ID = #{id,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        "Name" = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="districtname != null">
+        DistrictName = #{districtname,jdbcType=VARCHAR},
+      </if>
+      <if test="siteid != null">
+        SiteID = #{siteid,jdbcType=INTEGER},
+      </if>
+      <if test="sitename != null">
+        SiteName = #{sitename,jdbcType=VARCHAR},
+      </if>
+      <if test="ramcode != null">
+        RamCode = #{ramcode,jdbcType=VARCHAR},
+      </if>
+      <if test="equipmentname != null">
+        EquipMentName = #{equipmentname,jdbcType=VARCHAR},
+      </if>
+      <if test="flowrange != null">
+        FlowRange = #{flowrange,jdbcType=VARCHAR},
+      </if>
+      <if test="equipmentidreal != null">
+        EquipMentIDReal = #{equipmentidreal,jdbcType=INTEGER},
+      </if>
+      <if test="datasource != null">
+        DataSource = #{datasource,jdbcType=VARCHAR},
+      </if>
+      <if test="addtime != null">
+        AddTime = #{addtime,jdbcType=VARCHAR},
+      </if>
+      <if test="equipmentid != null">
+        EquipMentID = #{equipmentid,jdbcType=INTEGER},
+      </if>
+      <if test="p != null">
+        P = #{p,jdbcType=DOUBLE},
+      </if>
+      <if test="batteryvoltage != null">
+        BatteryVoltage = #{batteryvoltage,jdbcType=DOUBLE},
+      </if>
+      <if test="onlinestatus != null">
+        OnlineStatus = #{onlinestatus,jdbcType=VARCHAR},
+      </if>
+      <if test="coltime != null">
+        ColTime = #{coltime,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where PrcCmnEquipRealID = #{prccmnequiprealid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ks.qianjiang.model.KsPrccmnequipreal">
+    update KS_DataBase3.0_CS..KS_PrcCmnEquipReal
+    set BrandName = #{brandname,jdbcType=VARCHAR},
+      ClassID = #{classid,jdbcType=INTEGER},
+      ClassName = #{classname,jdbcType=VARCHAR},
+      ID = #{id,jdbcType=INTEGER},
+      "Name" = #{name,jdbcType=VARCHAR},
+      DistrictName = #{districtname,jdbcType=VARCHAR},
+      SiteID = #{siteid,jdbcType=INTEGER},
+      SiteName = #{sitename,jdbcType=VARCHAR},
+      RamCode = #{ramcode,jdbcType=VARCHAR},
+      EquipMentName = #{equipmentname,jdbcType=VARCHAR},
+      FlowRange = #{flowrange,jdbcType=VARCHAR},
+      EquipMentIDReal = #{equipmentidreal,jdbcType=INTEGER},
+      DataSource = #{datasource,jdbcType=VARCHAR},
+      AddTime = #{addtime,jdbcType=VARCHAR},
+      EquipMentID = #{equipmentid,jdbcType=INTEGER},
+      P = #{p,jdbcType=DOUBLE},
+      BatteryVoltage = #{batteryvoltage,jdbcType=DOUBLE},
+      OnlineStatus = #{onlinestatus,jdbcType=VARCHAR},
+      ColTime = #{coltime,jdbcType=VARCHAR}
+    where PrcCmnEquipRealID = #{prccmnequiprealid,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,745 @@
+DEBUG MyScheduler_Worker-2 druid.sql.Connection - {conn-10005} pool-recycle
+DEBUG MyScheduler_Worker-1 druid.sql.Statement - {conn-10004, pstmt-20017} clearParameters. 
+DEBUG MyScheduler_Worker-2 druid.sql.Connection - {conn-10005} pool-connect
+DEBUG MyScheduler_Worker-2 druid.sql.Connection - {conn-10005} setAutoCommit false
+DEBUG MyScheduler_Worker-2 druid.sql.Statement - {conn-10005, pstmt-20038} Parameters : [2020-02-27 12:48:26.002, 2020-02-27 12:48:26.032, COMPLETED, 1, 0, 0, 0, COMPLETED, , 3, 0, 0, 0, 0, 2020-02-27 12:48:26.034, 205, 2]
+DEBUG MyScheduler_Worker-2 druid.sql.Statement - {conn-10005, pstmt-20038} Types : [TIMESTAMP, TIMESTAMP, VARCHAR, INTEGER, INTEGER, INTEGER, INTEGER, VARCHAR, VARCHAR, INTEGER, INTEGER, INTEGER, INTEGER, INTEGER, TIMESTAMP, BIGINT, INTEGER]
+DEBUG MyScheduler_Worker-1 druid.sql.Connection - {conn-10004} commited
+DEBUG MyScheduler_Worker-1 druid.sql.Connection - {conn-10004} setAutoCommit true
+DEBUG MyScheduler_Worker-1 druid.sql.Connection - {conn-10004} pool-recycle
+DEBUG MyScheduler_Worker-1 druid.sql.Connection - {conn-10004} pool-connect
+DEBUG MyScheduler_Worker-1 druid.sql.Connection - {conn-10004} setAutoCommit false
+DEBUG MyScheduler_Worker-2 druid.sql.Statement - {conn-10005, pstmt-20038} update executed. effort 1. 2.2711 millis. UPDATE BATCH_STEP_EXECUTION set START_TIME = ?, END_TIME = ?, STATUS = ?, COMMIT_COUNT = ?, READ_COUNT = ?, FILTER_COUNT = ?, WRITE_COUNT = ?, EXIT_CODE = ?, EXIT_MESSAGE = ?, VERSION = ?, READ_SKIP_COUNT = ?, PROCESS_SKIP_COUNT = ?, WRITE_SKIP_COUNT = ?, ROLLBACK_COUNT = ?, LAST_UPDATED = ? where STEP_EXECUTION_ID = ? and VERSION = ?
+DEBUG MyScheduler_Worker-2 druid.sql.Statement - {conn-10005, pstmt-20038} clearParameters. 
+DEBUG MyScheduler_Worker-2 druid.sql.Statement - {conn-10005, pstmt-20023} Parameters : [124]
+DEBUG MyScheduler_Worker-2 druid.sql.Statement - {conn-10005, pstmt-20023} Types : [BIGINT]
+DEBUG MyScheduler_Worker-1 druid.sql.Statement - {conn-10004, pstmt-20041} Parameters : [{"batch.taskletType":"com.ks.qianjiang.tasks.MyTaskOne","batch.stepType":"org.springframework.batch.core.step.tasklet.TaskletStep"}, null, 206]
+DEBUG MyScheduler_Worker-1 druid.sql.Statement - {conn-10004, pstmt-20041} Types : [VARCHAR, CLOB, BIGINT]
+DEBUG MyScheduler_Worker-2 druid.sql.Statement - {conn-10005, pstmt-20023, rs-51074} query executed. 0.796901 millis. SELECT VERSION FROM BATCH_JOB_EXECUTION WHERE JOB_EXECUTION_ID=?
+DEBUG MyScheduler_Worker-2 druid.sql.ResultSet - {conn-10005, pstmt-20023, rs-51074} open
+DEBUG MyScheduler_Worker-2 druid.sql.ResultSet - {conn-10005, pstmt-20023, rs-51074} Header: [VERSION]
+DEBUG MyScheduler_Worker-2 druid.sql.ResultSet - {conn-10005, pstmt-20023, rs-51074} Result: [1]
+DEBUG MyScheduler_Worker-2 druid.sql.ResultSet - {conn-10005, pstmt-20023, rs-51074} closed
+DEBUG MyScheduler_Worker-2 druid.sql.Statement - {conn-10005, pstmt-20023} clearParameters. 
+DEBUG MyScheduler_Worker-1 druid.sql.Statement - {conn-10004, pstmt-20041} update executed. effort 1. 1.099 millis. UPDATE BATCH_STEP_EXECUTION_CONTEXT SET SHORT_CONTEXT = ?, SERIALIZED_CONTEXT = ? WHERE STEP_EXECUTION_ID = ?
+DEBUG MyScheduler_Worker-1 druid.sql.Statement - {conn-10004, pstmt-20041} clearParameters. 
+DEBUG MyScheduler_Worker-2 druid.sql.Connection - {conn-10005} commited
+DEBUG MyScheduler_Worker-2 druid.sql.Connection - {conn-10005} setAutoCommit true
+DEBUG MyScheduler_Worker-1 druid.sql.Connection - {conn-10004} commited
+DEBUG MyScheduler_Worker-1 druid.sql.Connection - {conn-10004} setAutoCommit true
+DEBUG MyScheduler_Worker-2 druid.sql.Connection - {conn-10005} pool-recycle
+DEBUG MyScheduler_Worker-2 druid.sql.Connection - {conn-10005} pool-connect
+DEBUG MyScheduler_Worker-2 druid.sql.Connection - {conn-10005} setAutoCommit false
+DEBUG MyScheduler_Worker-1 druid.sql.Connection - {conn-10004} pool-recycle
+DEBUG MyScheduler_Worker-1 druid.sql.Connection - {conn-10004} pool-connect
+DEBUG MyScheduler_Worker-1 druid.sql.Connection - {conn-10004} setAutoCommit false
+DEBUG MyScheduler_Worker-2 druid.sql.Statement - {conn-10005, pstmt-20043} Parameters : [{}, null, 124]
+DEBUG MyScheduler_Worker-2 druid.sql.Statement - {conn-10005, pstmt-20043} Types : [VARCHAR, CLOB, BIGINT]
+DEBUG MyScheduler_Worker-1 druid.sql.Statement - {conn-10004, pstmt-20041} Parameters : [{"batch.taskletType":"com.ks.qianjiang.tasks.MyTaskOne","batch.stepType":"org.springframework.batch.core.step.tasklet.TaskletStep"}, null, 206]
+DEBUG MyScheduler_Worker-1 druid.sql.Statement - {conn-10004, pstmt-20041} Types : [VARCHAR, CLOB, BIGINT]
+DEBUG MyScheduler_Worker-2 druid.sql.Statement - {conn-10005, pstmt-20043} update executed. effort 1. 1.2187 millis. UPDATE BATCH_JOB_EXECUTION_CONTEXT SET SHORT_CONTEXT = ?, SERIALIZED_CONTEXT = ? WHERE JOB_EXECUTION_ID = ?
+DEBUG MyScheduler_Worker-2 druid.sql.Statement - {conn-10005, pstmt-20043} clearParameters. 
+DEBUG MyScheduler_Worker-1 druid.sql.Statement - {conn-10004, pstmt-20041} update executed. effort 1. 1.180501 millis. UPDATE BATCH_STEP_EXECUTION_CONTEXT SET SHORT_CONTEXT = ?, SERIALIZED_CONTEXT = ? WHERE STEP_EXECUTION_ID = ?
+DEBUG MyScheduler_Worker-1 druid.sql.Statement - {conn-10004, pstmt-20041} clearParameters. 
+DEBUG MyScheduler_Worker-1 druid.sql.Statement - {conn-10004, pstmt-20039} Parameters : [2020-02-27 12:48:26.019, null, STARTED, 1, 0, 0, 0, EXECUTING, , 2, 0, 0, 0, 0, 2020-02-27 12:48:26.042, 206, 1]
+DEBUG MyScheduler_Worker-1 druid.sql.Statement - {conn-10004, pstmt-20039} Types : [TIMESTAMP, TIMESTAMP, VARCHAR, INTEGER, INTEGER, INTEGER, INTEGER, VARCHAR, VARCHAR, INTEGER, INTEGER, INTEGER, INTEGER, INTEGER, TIMESTAMP, BIGINT, INTEGER]
+DEBUG MyScheduler_Worker-2 druid.sql.Connection - {conn-10005} commited
+DEBUG MyScheduler_Worker-2 druid.sql.Connection - {conn-10005} setAutoCommit true
+DEBUG MyScheduler_Worker-1 druid.sql.Statement - {conn-10004, pstmt-20039} update executed. effort 1. 1.0144 millis. UPDATE BATCH_STEP_EXECUTION set START_TIME = ?, END_TIME = ?, STATUS = ?, COMMIT_COUNT = ?, READ_COUNT = ?, FILTER_COUNT = ?, WRITE_COUNT = ?, EXIT_CODE = ?, EXIT_MESSAGE = ?, VERSION = ?, READ_SKIP_COUNT = ?, PROCESS_SKIP_COUNT = ?, WRITE_SKIP_COUNT = ?, ROLLBACK_COUNT = ?, LAST_UPDATED = ? where STEP_EXECUTION_ID = ? and VERSION = ?
+DEBUG MyScheduler_Worker-1 druid.sql.Statement - {conn-10004, pstmt-20039} clearParameters. 
+DEBUG MyScheduler_Worker-1 druid.sql.Statement - {conn-10004, pstmt-20017} Parameters : [125]
+DEBUG MyScheduler_Worker-1 druid.sql.Statement - {conn-10004, pstmt-20017} Types : [BIGINT]
+DEBUG MyScheduler_Worker-2 druid.sql.Connection - {conn-10005} pool-recycle
+DEBUG MyScheduler_Worker-2 druid.sql.Connection - {conn-10005} pool-connect
+DEBUG MyScheduler_Worker-2 druid.sql.Connection - {conn-10005} setAutoCommit false
+DEBUG MyScheduler_Worker-1 druid.sql.Statement - {conn-10004, pstmt-20017, rs-51075} query executed. 0.8078 millis. SELECT VERSION FROM BATCH_JOB_EXECUTION WHERE JOB_EXECUTION_ID=?
+DEBUG MyScheduler_Worker-1 druid.sql.ResultSet - {conn-10004, pstmt-20017, rs-51075} open
+DEBUG MyScheduler_Worker-1 druid.sql.ResultSet - {conn-10004, pstmt-20017, rs-51075} Header: [VERSION]
+DEBUG MyScheduler_Worker-1 druid.sql.ResultSet - {conn-10004, pstmt-20017, rs-51075} Result: [1]
+DEBUG MyScheduler_Worker-1 druid.sql.ResultSet - {conn-10004, pstmt-20017, rs-51075} closed
+DEBUG MyScheduler_Worker-2 druid.sql.Statement - {conn-10005, pstmt-20028} Parameters : [123]
+DEBUG MyScheduler_Worker-2 druid.sql.Statement - {conn-10005, pstmt-20028} Types : [BIGINT]
+DEBUG MyScheduler_Worker-1 druid.sql.Statement - {conn-10004, pstmt-20017} clearParameters. 
+DEBUG MyScheduler_Worker-2 druid.sql.Statement - {conn-10005, pstmt-20028, rs-51076} query executed. 1.1253 millis. SELECT JOB_EXECUTION_ID, START_TIME, END_TIME, STATUS, EXIT_CODE, EXIT_MESSAGE, CREATE_TIME, LAST_UPDATED, VERSION, JOB_CONFIGURATION_LOCATION from BATCH_JOB_EXECUTION where JOB_INSTANCE_ID = ? order by JOB_EXECUTION_ID desc
+DEBUG MyScheduler_Worker-2 druid.sql.ResultSet - {conn-10005, pstmt-20028, rs-51076} open
+DEBUG MyScheduler_Worker-2 druid.sql.ResultSet - {conn-10005, pstmt-20028, rs-51076} Header: [JOB_EXECUTION_ID, START_TIME, END_TIME, STATUS, EXIT_CODE, EXIT_MESSAGE, CREATE_TIME, LAST_UPDATED, VERSION, JOB_CONFIGURATION_LOCATION]
+DEBUG MyScheduler_Worker-2 druid.sql.ResultSet - {conn-10005, pstmt-20028, rs-51076} Result: [124, 2020-02-27 12:48:25.967, null, STARTED, UNKNOWN, , 2020-02-27 12:48:25.96, 2020-02-27 12:48:25.97, 1, null]
+DEBUG MyScheduler_Worker-1 druid.sql.Connection - {conn-10004} commited
+DEBUG MyScheduler_Worker-2 druid.sql.Statement - {conn-10005, pstmt-20030} Parameters : [124]
+DEBUG MyScheduler_Worker-2 druid.sql.Statement - {conn-10005, pstmt-20030} Types : [BIGINT]
+DEBUG MyScheduler_Worker-1 druid.sql.Connection - {conn-10004} setAutoCommit true
+DEBUG MyScheduler_Worker-1 druid.sql.Connection - {conn-10004} pool-recycle
+DEBUG MyScheduler_Worker-1 druid.sql.Connection - {conn-10004} pool-connect
+DEBUG MyScheduler_Worker-1 druid.sql.Connection - {conn-10004} setAutoCommit false
+DEBUG MyScheduler_Worker-2 druid.sql.Statement - {conn-10005, pstmt-20030, rs-51077} query executed. 1.4575 millis. SELECT JOB_EXECUTION_ID, KEY_NAME, TYPE_CD, STRING_VAL, DATE_VAL, LONG_VAL, DOUBLE_VAL, IDENTIFYING from BATCH_JOB_EXECUTION_PARAMS where JOB_EXECUTION_ID = ?
+DEBUG MyScheduler_Worker-2 druid.sql.ResultSet - {conn-10005, pstmt-20030, rs-51077} open
+DEBUG MyScheduler_Worker-2 druid.sql.ResultSet - {conn-10005, pstmt-20030, rs-51077} Header: [JOB_EXECUTION_ID, KEY_NAME, TYPE_CD, STRING_VAL, DATE_VAL, LONG_VAL, DOUBLE_VAL, IDENTIFYING]
+DEBUG MyScheduler_Worker-2 druid.sql.ResultSet - {conn-10005, pstmt-20030, rs-51077} Result: [124, JobID, STRING, 1582778905937, 1970-01-01 08:00:00.0, 0, 0.0, Y]
+DEBUG MyScheduler_Worker-2 druid.sql.ResultSet - {conn-10005, pstmt-20030, rs-51077} closed
+DEBUG MyScheduler_Worker-2 druid.sql.Statement - {conn-10005, pstmt-20030} clearParameters. 
+DEBUG MyScheduler_Worker-2 druid.sql.ResultSet - {conn-10005, pstmt-20028, rs-51076} closed
+DEBUG MyScheduler_Worker-2 druid.sql.Statement - {conn-10005, pstmt-20028} clearParameters. 
+DEBUG MyScheduler_Worker-2 druid.sql.Statement - {conn-10005, pstmt-20031} Parameters : [124]
+DEBUG MyScheduler_Worker-2 druid.sql.Statement - {conn-10005, pstmt-20031} Types : [BIGINT]
+DEBUG MyScheduler_Worker-1 druid.sql.Statement - {conn-10004, pstmt-20041} Parameters : [{"batch.taskletType":"com.ks.qianjiang.tasks.MyTaskOne","batch.stepType":"org.springframework.batch.core.step.tasklet.TaskletStep"}, null, 206]
+DEBUG MyScheduler_Worker-1 druid.sql.Statement - {conn-10004, pstmt-20041} Types : [VARCHAR, CLOB, BIGINT]
+DEBUG MyScheduler_Worker-2 druid.sql.Statement - {conn-10005, pstmt-20031, rs-51078} query executed. 1.4989 millis. SELECT STEP_EXECUTION_ID, STEP_NAME, START_TIME, END_TIME, STATUS, COMMIT_COUNT, READ_COUNT, FILTER_COUNT, WRITE_COUNT, EXIT_CODE, EXIT_MESSAGE, READ_SKIP_COUNT, WRITE_SKIP_COUNT, PROCESS_SKIP_COUNT, ROLLBACK_COUNT, LAST_UPDATED, VERSION from BATCH_STEP_EXECUTION where JOB_EXECUTION_ID = ? order by STEP_EXECUTION_ID
+DEBUG MyScheduler_Worker-2 druid.sql.ResultSet - {conn-10005, pstmt-20031, rs-51078} open
+DEBUG MyScheduler_Worker-2 druid.sql.ResultSet - {conn-10005, pstmt-20031, rs-51078} Header: [STEP_EXECUTION_ID, STEP_NAME, START_TIME, END_TIME, STATUS, COMMIT_COUNT, READ_COUNT, FILTER_COUNT, WRITE_COUNT, EXIT_CODE, EXIT_MESSAGE, READ_SKIP_COUNT, WRITE_SKIP_COUNT, PROCESS_SKIP_COUNT, ROLLBACK_COUNT, LAST_UPDATED, VERSION]
+DEBUG MyScheduler_Worker-1 druid.sql.Statement - {conn-10004, pstmt-20041} update executed. effort 1. 1.455801 millis. UPDATE BATCH_STEP_EXECUTION_CONTEXT SET SHORT_CONTEXT = ?, SERIALIZED_CONTEXT = ? WHERE STEP_EXECUTION_ID = ?
+DEBUG MyScheduler_Worker-1 druid.sql.Statement - {conn-10004, pstmt-20041} clearParameters. 
+DEBUG MyScheduler_Worker-2 druid.sql.ResultSet - {conn-10005, pstmt-20031, rs-51078} Result: [205, stepOne, 2020-02-27 12:48:26.003, 2020-02-27 12:48:26.033, COMPLETED, 1, 0, 0, 0, COMPLETED, , 0, 0, 0, 0, 2020-02-27 12:48:26.033, 3]
+DEBUG MyScheduler_Worker-2 druid.sql.ResultSet - {conn-10005, pstmt-20031, rs-51078} closed
+DEBUG MyScheduler_Worker-2 druid.sql.Statement - {conn-10005, pstmt-20031} clearParameters. 
+DEBUG MyScheduler_Worker-2 druid.sql.Connection - {conn-10005} commited
+DEBUG MyScheduler_Worker-2 druid.sql.Connection - {conn-10005} setAutoCommit true
+DEBUG MyScheduler_Worker-1 druid.sql.Connection - {conn-10004} commited
+DEBUG MyScheduler_Worker-1 druid.sql.Connection - {conn-10004} setAutoCommit true
+DEBUG MyScheduler_Worker-2 druid.sql.Connection - {conn-10005} pool-recycle
+DEBUG MyScheduler_Worker-2 druid.sql.Connection - {conn-10005} pool-connect
+DEBUG MyScheduler_Worker-2 druid.sql.Connection - {conn-10005} setAutoCommit false
+DEBUG MyScheduler_Worker-1 druid.sql.Connection - {conn-10004} pool-recycle
+DEBUG MyScheduler_Worker-1 druid.sql.Connection - {conn-10004} pool-connect
+DEBUG MyScheduler_Worker-1 druid.sql.Connection - {conn-10004} setAutoCommit false
+DEBUG MyScheduler_Worker-2 druid.sql.Statement - {conn-10005, pstmt-20028} Parameters : [123]
+DEBUG MyScheduler_Worker-2 druid.sql.Statement - {conn-10005, pstmt-20028} Types : [BIGINT]
+DEBUG MyScheduler_Worker-1 druid.sql.Statement - {conn-10004, pstmt-20039} Parameters : [2020-02-27 12:48:26.019, 2020-02-27 12:48:26.052, COMPLETED, 1, 0, 0, 0, COMPLETED, , 3, 0, 0, 0, 0, 2020-02-27 12:48:26.053, 206, 2]
+DEBUG MyScheduler_Worker-1 druid.sql.Statement - {conn-10004, pstmt-20039} Types : [TIMESTAMP, TIMESTAMP, VARCHAR, INTEGER, INTEGER, INTEGER, INTEGER, VARCHAR, VARCHAR, INTEGER, INTEGER, INTEGER, INTEGER, INTEGER, TIMESTAMP, BIGINT, INTEGER]
+DEBUG MyScheduler_Worker-2 druid.sql.Statement - {conn-10005, pstmt-20028, rs-51079} query executed. 1.769101 millis. SELECT JOB_EXECUTION_ID, START_TIME, END_TIME, STATUS, EXIT_CODE, EXIT_MESSAGE, CREATE_TIME, LAST_UPDATED, VERSION, JOB_CONFIGURATION_LOCATION from BATCH_JOB_EXECUTION where JOB_INSTANCE_ID = ? order by JOB_EXECUTION_ID desc
+DEBUG MyScheduler_Worker-2 druid.sql.ResultSet - {conn-10005, pstmt-20028, rs-51079} open
+DEBUG MyScheduler_Worker-2 druid.sql.ResultSet - {conn-10005, pstmt-20028, rs-51079} Header: [JOB_EXECUTION_ID, START_TIME, END_TIME, STATUS, EXIT_CODE, EXIT_MESSAGE, CREATE_TIME, LAST_UPDATED, VERSION, JOB_CONFIGURATION_LOCATION]
+DEBUG MyScheduler_Worker-1 druid.sql.Statement - {conn-10004, pstmt-20039} update executed. effort 1. 1.688299 millis. UPDATE BATCH_STEP_EXECUTION set START_TIME = ?, END_TIME = ?, STATUS = ?, COMMIT_COUNT = ?, READ_COUNT = ?, FILTER_COUNT = ?, WRITE_COUNT = ?, EXIT_CODE = ?, EXIT_MESSAGE = ?, VERSION = ?, READ_SKIP_COUNT = ?, PROCESS_SKIP_COUNT = ?, WRITE_SKIP_COUNT = ?, ROLLBACK_COUNT = ?, LAST_UPDATED = ? where STEP_EXECUTION_ID = ? and VERSION = ?
+DEBUG MyScheduler_Worker-2 druid.sql.ResultSet - {conn-10005, pstmt-20028, rs-51079} Result: [124, 2020-02-27 12:48:25.967, null, STARTED, UNKNOWN, , 2020-02-27 12:48:25.96, 2020-02-27 12:48:25.97, 1, null]
+DEBUG MyScheduler_Worker-1 druid.sql.Statement - {conn-10004, pstmt-20039} clearParameters. 
+DEBUG MyScheduler_Worker-2 druid.sql.Statement - {conn-10005, pstmt-20030} Parameters : [124]
+DEBUG MyScheduler_Worker-2 druid.sql.Statement - {conn-10005, pstmt-20030} Types : [BIGINT]
+DEBUG MyScheduler_Worker-1 druid.sql.Statement - {conn-10004, pstmt-20017} Parameters : [125]
+DEBUG MyScheduler_Worker-1 druid.sql.Statement - {conn-10004, pstmt-20017} Types : [BIGINT]
+DEBUG MyScheduler_Worker-2 druid.sql.Statement - {conn-10005, pstmt-20030, rs-51080} query executed. 1.073901 millis. SELECT JOB_EXECUTION_ID, KEY_NAME, TYPE_CD, STRING_VAL, DATE_VAL, LONG_VAL, DOUBLE_VAL, IDENTIFYING from BATCH_JOB_EXECUTION_PARAMS where JOB_EXECUTION_ID = ?
+DEBUG MyScheduler_Worker-2 druid.sql.ResultSet - {conn-10005, pstmt-20030, rs-51080} open
+DEBUG MyScheduler_Worker-2 druid.sql.ResultSet - {conn-10005, pstmt-20030, rs-51080} Header: [JOB_EXECUTION_ID, KEY_NAME, TYPE_CD, STRING_VAL, DATE_VAL, LONG_VAL, DOUBLE_VAL, IDENTIFYING]
+DEBUG MyScheduler_Worker-1 druid.sql.Statement - {conn-10004, pstmt-20017, rs-51081} query executed. 1.2304 millis. SELECT VERSION FROM BATCH_JOB_EXECUTION WHERE JOB_EXECUTION_ID=?
+DEBUG MyScheduler_Worker-1 druid.sql.ResultSet - {conn-10004, pstmt-20017, rs-51081} open
+DEBUG MyScheduler_Worker-1 druid.sql.ResultSet - {conn-10004, pstmt-20017, rs-51081} Header: [VERSION]
+DEBUG MyScheduler_Worker-2 druid.sql.ResultSet - {conn-10005, pstmt-20030, rs-51080} Result: [124, JobID, STRING, 1582778905937, 1970-01-01 08:00:00.0, 0, 0.0, Y]
+DEBUG MyScheduler_Worker-1 druid.sql.ResultSet - {conn-10004, pstmt-20017, rs-51081} Result: [1]
+DEBUG MyScheduler_Worker-2 druid.sql.ResultSet - {conn-10005, pstmt-20030, rs-51080} closed
+DEBUG MyScheduler_Worker-1 druid.sql.ResultSet - {conn-10004, pstmt-20017, rs-51081} closed
+DEBUG MyScheduler_Worker-1 druid.sql.Statement - {conn-10004, pstmt-20017} clearParameters. 
+DEBUG MyScheduler_Worker-2 druid.sql.Statement - {conn-10005, pstmt-20030} clearParameters. 
+DEBUG MyScheduler_Worker-2 druid.sql.ResultSet - {conn-10005, pstmt-20028, rs-51079} closed
+DEBUG MyScheduler_Worker-2 druid.sql.Statement - {conn-10005, pstmt-20028} clearParameters. 
+DEBUG MyScheduler_Worker-2 druid.sql.Statement - {conn-10005, pstmt-20031} Parameters : [124]
+DEBUG MyScheduler_Worker-2 druid.sql.Statement - {conn-10005, pstmt-20031} Types : [BIGINT]
+DEBUG MyScheduler_Worker-1 druid.sql.Connection - {conn-10004} commited
+DEBUG MyScheduler_Worker-1 druid.sql.Connection - {conn-10004} setAutoCommit true
+DEBUG MyScheduler_Worker-2 druid.sql.Statement - {conn-10005, pstmt-20031, rs-51082} query executed. 1.491401 millis. SELECT STEP_EXECUTION_ID, STEP_NAME, START_TIME, END_TIME, STATUS, COMMIT_COUNT, READ_COUNT, FILTER_COUNT, WRITE_COUNT, EXIT_CODE, EXIT_MESSAGE, READ_SKIP_COUNT, WRITE_SKIP_COUNT, PROCESS_SKIP_COUNT, ROLLBACK_COUNT, LAST_UPDATED, VERSION from BATCH_STEP_EXECUTION where JOB_EXECUTION_ID = ? order by STEP_EXECUTION_ID
+DEBUG MyScheduler_Worker-2 druid.sql.ResultSet - {conn-10005, pstmt-20031, rs-51082} open
+DEBUG MyScheduler_Worker-2 druid.sql.ResultSet - {conn-10005, pstmt-20031, rs-51082} Header: [STEP_EXECUTION_ID, STEP_NAME, START_TIME, END_TIME, STATUS, COMMIT_COUNT, READ_COUNT, FILTER_COUNT, WRITE_COUNT, EXIT_CODE, EXIT_MESSAGE, READ_SKIP_COUNT, WRITE_SKIP_COUNT, PROCESS_SKIP_COUNT, ROLLBACK_COUNT, LAST_UPDATED, VERSION]
+DEBUG MyScheduler_Worker-1 druid.sql.Connection - {conn-10004} pool-recycle
+DEBUG MyScheduler_Worker-2 druid.sql.ResultSet - {conn-10005, pstmt-20031, rs-51082} Result: [205, stepOne, 2020-02-27 12:48:26.003, 2020-02-27 12:48:26.033, COMPLETED, 1, 0, 0, 0, COMPLETED, , 0, 0, 0, 0, 2020-02-27 12:48:26.033, 3]
+DEBUG MyScheduler_Worker-2 druid.sql.ResultSet - {conn-10005, pstmt-20031, rs-51082} closed
+DEBUG MyScheduler_Worker-1 druid.sql.Connection - {conn-10004} pool-connect
+DEBUG MyScheduler_Worker-1 druid.sql.Connection - {conn-10004} setAutoCommit false
+DEBUG MyScheduler_Worker-2 druid.sql.Statement - {conn-10005, pstmt-20031} clearParameters. 
+DEBUG MyScheduler_Worker-1 druid.sql.Statement - {conn-10004, pstmt-20042} Parameters : [{}, null, 125]
+DEBUG MyScheduler_Worker-1 druid.sql.Statement - {conn-10004, pstmt-20042} Types : [VARCHAR, CLOB, BIGINT]
+DEBUG MyScheduler_Worker-2 druid.sql.Connection - {conn-10005} commited
+DEBUG MyScheduler_Worker-2 druid.sql.Connection - {conn-10005} setAutoCommit true
+DEBUG MyScheduler_Worker-1 druid.sql.Statement - {conn-10004, pstmt-20042} update executed. effort 1. 0.940401 millis. UPDATE BATCH_JOB_EXECUTION_CONTEXT SET SHORT_CONTEXT = ?, SERIALIZED_CONTEXT = ? WHERE JOB_EXECUTION_ID = ?
+DEBUG MyScheduler_Worker-1 druid.sql.Statement - {conn-10004, pstmt-20042} clearParameters. 
+DEBUG MyScheduler_Worker-2 druid.sql.Connection - {conn-10005} pool-recycle
+DEBUG MyScheduler_Worker-2 druid.sql.Connection - {conn-10005} pool-connect
+DEBUG MyScheduler_Worker-2 druid.sql.Connection - {conn-10005} setAutoCommit false
+DEBUG MyScheduler_Worker-1 druid.sql.Connection - {conn-10004} commited
+DEBUG MyScheduler_Worker-1 druid.sql.Connection - {conn-10004} setAutoCommit true
+DEBUG MyScheduler_Worker-2 druid.sql.Statement - {conn-10005, stmt-20187} created
+DEBUG MyScheduler_Worker-1 druid.sql.Connection - {conn-10004} pool-recycle
+DEBUG MyScheduler_Worker-1 druid.sql.Connection - {conn-10004} pool-connect
+DEBUG MyScheduler_Worker-1 druid.sql.Connection - {conn-10004} setAutoCommit false
+DEBUG MyScheduler_Worker-2 druid.sql.Statement - {conn-10005, stmt-20187} update executed. effort 1. 1.5471 millis. insert into BATCH_STEP_EXECUTION_SEQ default values
+DEBUG MyScheduler_Worker-1 druid.sql.Statement - {conn-10004, pstmt-20017} Parameters : [125]
+DEBUG MyScheduler_Worker-1 druid.sql.Statement - {conn-10004, pstmt-20017} Types : [BIGINT]
+DEBUG MyScheduler_Worker-2 druid.sql.Statement - {conn-10005, stmt-20187, rs-51083} query executed. 0.8881 millis. select @@identity
+DEBUG MyScheduler_Worker-2 druid.sql.ResultSet - {conn-10005, stmt-20187, rs-51083} open
+DEBUG MyScheduler_Worker-2 druid.sql.ResultSet - {conn-10005, stmt-20187, rs-51083} Header: []
+DEBUG MyScheduler_Worker-2 druid.sql.ResultSet - {conn-10005, stmt-20187, rs-51083} Result: [207]
+DEBUG MyScheduler_Worker-1 druid.sql.Statement - {conn-10004, pstmt-20017, rs-51084} query executed. 0.9195 millis. SELECT VERSION FROM BATCH_JOB_EXECUTION WHERE JOB_EXECUTION_ID=?
+DEBUG MyScheduler_Worker-1 druid.sql.ResultSet - {conn-10004, pstmt-20017, rs-51084} open
+DEBUG MyScheduler_Worker-2 druid.sql.ResultSet - {conn-10005, stmt-20187, rs-51083} closed
+DEBUG MyScheduler_Worker-1 druid.sql.ResultSet - {conn-10004, pstmt-20017, rs-51084} Header: [VERSION]
+DEBUG MyScheduler_Worker-1 druid.sql.ResultSet - {conn-10004, pstmt-20017, rs-51084} Result: [1]
+DEBUG MyScheduler_Worker-1 druid.sql.ResultSet - {conn-10004, pstmt-20017, rs-51084} closed
+DEBUG MyScheduler_Worker-1 druid.sql.Statement - {conn-10004, pstmt-20017} clearParameters. 
+DEBUG MyScheduler_Worker-1 druid.sql.Statement - {conn-10004, pstmt-20019} Parameters : [125]
+DEBUG MyScheduler_Worker-1 druid.sql.Statement - {conn-10004, pstmt-20019} Types : [BIGINT]
+DEBUG MyScheduler_Worker-2 druid.sql.Statement - {conn-10005, stmt-20187} update executed. effort 1. 1.494 millis. delete from BATCH_STEP_EXECUTION_SEQ where ID < 207
+DEBUG MyScheduler_Worker-2 druid.sql.Statement - {conn-10005, stmt-20187} closed
+DEBUG MyScheduler_Worker-1 druid.sql.Statement - {conn-10004, pstmt-20019, rs-51085} query executed. 1.472099 millis. SELECT COUNT(*) FROM BATCH_JOB_EXECUTION WHERE JOB_EXECUTION_ID = ?
+DEBUG MyScheduler_Worker-1 druid.sql.ResultSet - {conn-10004, pstmt-20019, rs-51085} open
+DEBUG MyScheduler_Worker-1 druid.sql.ResultSet - {conn-10004, pstmt-20019, rs-51085} Header: []
+DEBUG MyScheduler_Worker-2 druid.sql.Statement - {conn-10005, pstmt-20033} Parameters : [207, 0, stepTwo, 124, 2020-02-27 12:48:26.061, null, STARTING, 0, 0, 0, 0, EXECUTING, , 0, 0, 0, 0, 2020-02-27 12:48:26.062]
+DEBUG MyScheduler_Worker-1 druid.sql.ResultSet - {conn-10004, pstmt-20019, rs-51085} Result: [1]
+DEBUG MyScheduler_Worker-2 druid.sql.Statement - {conn-10005, pstmt-20033} Types : [BIGINT, INTEGER, VARCHAR, BIGINT, TIMESTAMP, TIMESTAMP, VARCHAR, INTEGER, INTEGER, INTEGER, INTEGER, VARCHAR, VARCHAR, INTEGER, INTEGER, INTEGER, INTEGER, TIMESTAMP]
+DEBUG MyScheduler_Worker-1 druid.sql.ResultSet - {conn-10004, pstmt-20019, rs-51085} closed
+DEBUG MyScheduler_Worker-1 druid.sql.Statement - {conn-10004, pstmt-20019} clearParameters. 
+DEBUG MyScheduler_Worker-1 druid.sql.Statement - {conn-10004, pstmt-20022} Parameters : [2020-02-27 12:48:25.981, 2020-02-27 12:48:26.063, COMPLETED, COMPLETED, , 2, 2020-02-27 12:48:25.971, 2020-02-27 12:48:26.064, 125, 1]
+DEBUG MyScheduler_Worker-1 druid.sql.Statement - {conn-10004, pstmt-20022} Types : [TIMESTAMP, TIMESTAMP, VARCHAR, VARCHAR, VARCHAR, INTEGER, TIMESTAMP, TIMESTAMP, BIGINT, INTEGER]
+DEBUG MyScheduler_Worker-2 druid.sql.Statement - {conn-10005, pstmt-20033} update executed. effort 1. 1.0686 millis. INSERT into BATCH_STEP_EXECUTION(STEP_EXECUTION_ID, VERSION, STEP_NAME, JOB_EXECUTION_ID, START_TIME, END_TIME, STATUS, COMMIT_COUNT, READ_COUNT, FILTER_COUNT, WRITE_COUNT, EXIT_CODE, EXIT_MESSAGE, READ_SKIP_COUNT, WRITE_SKIP_COUNT, PROCESS_SKIP_COUNT, ROLLBACK_COUNT, LAST_UPDATED) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+DEBUG MyScheduler_Worker-2 druid.sql.Statement - {conn-10005, pstmt-20033} clearParameters. 
+DEBUG MyScheduler_Worker-2 druid.sql.Statement - {conn-10005, pstmt-20035} Parameters : [{}, null, 207]
+DEBUG MyScheduler_Worker-2 druid.sql.Statement - {conn-10005, pstmt-20035} Types : [VARCHAR, CLOB, BIGINT]
+DEBUG MyScheduler_Worker-1 druid.sql.Statement - {conn-10004, pstmt-20022} update executed. effort 1. 1.0836 millis. UPDATE BATCH_JOB_EXECUTION set START_TIME = ?, END_TIME = ?,  STATUS = ?, EXIT_CODE = ?, EXIT_MESSAGE = ?, VERSION = ?, CREATE_TIME = ?, LAST_UPDATED = ? where JOB_EXECUTION_ID = ? and VERSION = ?
+DEBUG MyScheduler_Worker-1 druid.sql.Statement - {conn-10004, pstmt-20022} clearParameters. 
+DEBUG MyScheduler_Worker-2 druid.sql.Statement - {conn-10005, pstmt-20035} update executed. effort 1. 0.705701 millis. INSERT INTO BATCH_STEP_EXECUTION_CONTEXT (SHORT_CONTEXT, SERIALIZED_CONTEXT, STEP_EXECUTION_ID) VALUES(?, ?, ?)
+DEBUG MyScheduler_Worker-2 druid.sql.Statement - {conn-10005, pstmt-20035} clearParameters. 
+DEBUG MyScheduler_Worker-1 druid.sql.Connection - {conn-10004} commited
+DEBUG MyScheduler_Worker-1 druid.sql.Connection - {conn-10004} setAutoCommit true
+DEBUG MyScheduler_Worker-2 druid.sql.Connection - {conn-10005} commited
+DEBUG MyScheduler_Worker-2 druid.sql.Connection - {conn-10005} setAutoCommit true
+DEBUG MyScheduler_Worker-1 druid.sql.Connection - {conn-10004} pool-recycle
+DEBUG MyScheduler_Worker-2 druid.sql.Connection - {conn-10005} pool-recycle
+DEBUG MyScheduler_Worker-2 druid.sql.Connection - {conn-10005} pool-connect
+DEBUG MyScheduler_Worker-2 druid.sql.Connection - {conn-10005} setAutoCommit false
+DEBUG MyScheduler_Worker-2 druid.sql.Statement - {conn-10005, pstmt-20038} Parameters : [2020-02-27 12:48:26.071, null, STARTED, 0, 0, 0, 0, EXECUTING, , 1, 0, 0, 0, 0, 2020-02-27 12:48:26.071, 207, 0]
+DEBUG MyScheduler_Worker-2 druid.sql.Statement - {conn-10005, pstmt-20038} Types : [TIMESTAMP, TIMESTAMP, VARCHAR, INTEGER, INTEGER, INTEGER, INTEGER, VARCHAR, VARCHAR, INTEGER, INTEGER, INTEGER, INTEGER, INTEGER, TIMESTAMP, BIGINT, INTEGER]
+DEBUG MyScheduler_Worker-2 druid.sql.Statement - {conn-10005, pstmt-20038} update executed. effort 1. 1.1001 millis. UPDATE BATCH_STEP_EXECUTION set START_TIME = ?, END_TIME = ?, STATUS = ?, COMMIT_COUNT = ?, READ_COUNT = ?, FILTER_COUNT = ?, WRITE_COUNT = ?, EXIT_CODE = ?, EXIT_MESSAGE = ?, VERSION = ?, READ_SKIP_COUNT = ?, PROCESS_SKIP_COUNT = ?, WRITE_SKIP_COUNT = ?, ROLLBACK_COUNT = ?, LAST_UPDATED = ? where STEP_EXECUTION_ID = ? and VERSION = ?
+DEBUG MyScheduler_Worker-2 druid.sql.Statement - {conn-10005, pstmt-20038} clearParameters. 
+DEBUG MyScheduler_Worker-2 druid.sql.Statement - {conn-10005, pstmt-20023} Parameters : [124]
+DEBUG MyScheduler_Worker-2 druid.sql.Statement - {conn-10005, pstmt-20023} Types : [BIGINT]
+DEBUG MyScheduler_Worker-2 druid.sql.Statement - {conn-10005, pstmt-20023, rs-51086} query executed. 0.975299 millis. SELECT VERSION FROM BATCH_JOB_EXECUTION WHERE JOB_EXECUTION_ID=?
+DEBUG MyScheduler_Worker-2 druid.sql.ResultSet - {conn-10005, pstmt-20023, rs-51086} open
+DEBUG MyScheduler_Worker-2 druid.sql.ResultSet - {conn-10005, pstmt-20023, rs-51086} Header: [VERSION]
+DEBUG MyScheduler_Worker-2 druid.sql.ResultSet - {conn-10005, pstmt-20023, rs-51086} Result: [1]
+DEBUG MyScheduler_Worker-2 druid.sql.ResultSet - {conn-10005, pstmt-20023, rs-51086} closed
+DEBUG MyScheduler_Worker-2 druid.sql.Statement - {conn-10005, pstmt-20023} clearParameters. 
+DEBUG MyScheduler_Worker-2 druid.sql.Connection - {conn-10005} commited
+DEBUG MyScheduler_Worker-2 druid.sql.Connection - {conn-10005} setAutoCommit true
+DEBUG MyScheduler_Worker-2 druid.sql.Connection - {conn-10005} pool-recycle
+DEBUG MyScheduler_Worker-2 druid.sql.Connection - {conn-10005} pool-connect
+DEBUG MyScheduler_Worker-2 druid.sql.Connection - {conn-10005} setAutoCommit false
+DEBUG MyScheduler_Worker-2 druid.sql.Statement - {conn-10005, pstmt-20040} Parameters : [{"batch.taskletType":"com.ks.qianjiang.tasks.MyTaskTwo","batch.stepType":"org.springframework.batch.core.step.tasklet.TaskletStep"}, null, 207]
+DEBUG MyScheduler_Worker-2 druid.sql.Statement - {conn-10005, pstmt-20040} Types : [VARCHAR, CLOB, BIGINT]
+DEBUG MyScheduler_Worker-2 druid.sql.Statement - {conn-10005, pstmt-20040} update executed. effort 1. 1.026 millis. UPDATE BATCH_STEP_EXECUTION_CONTEXT SET SHORT_CONTEXT = ?, SERIALIZED_CONTEXT = ? WHERE STEP_EXECUTION_ID = ?
+DEBUG MyScheduler_Worker-2 druid.sql.Statement - {conn-10005, pstmt-20040} clearParameters. 
+DEBUG MyScheduler_Worker-2 druid.sql.Connection - {conn-10005} commited
+DEBUG MyScheduler_Worker-2 druid.sql.Connection - {conn-10005} setAutoCommit true
+DEBUG MyScheduler_Worker-2 druid.sql.Connection - {conn-10005} pool-recycle
+DEBUG MyScheduler_Worker-2 druid.sql.Connection - {conn-10005} pool-connect
+DEBUG MyScheduler_Worker-2 druid.sql.Connection - {conn-10005} setAutoCommit false
+DEBUG MyScheduler_Worker-2 druid.sql.Statement - {conn-10005, pstmt-20040} Parameters : [{"batch.taskletType":"com.ks.qianjiang.tasks.MyTaskTwo","batch.stepType":"org.springframework.batch.core.step.tasklet.TaskletStep"}, null, 207]
+DEBUG MyScheduler_Worker-2 druid.sql.Statement - {conn-10005, pstmt-20040} Types : [VARCHAR, CLOB, BIGINT]
+DEBUG MyScheduler_Worker-2 druid.sql.Statement - {conn-10005, pstmt-20040} update executed. effort 1. 1.156301 millis. UPDATE BATCH_STEP_EXECUTION_CONTEXT SET SHORT_CONTEXT = ?, SERIALIZED_CONTEXT = ? WHERE STEP_EXECUTION_ID = ?
+DEBUG MyScheduler_Worker-2 druid.sql.Statement - {conn-10005, pstmt-20040} clearParameters. 
+DEBUG MyScheduler_Worker-2 druid.sql.Statement - {conn-10005, pstmt-20038} Parameters : [2020-02-27 12:48:26.071, null, STARTED, 1, 0, 0, 0, EXECUTING, , 2, 0, 0, 0, 0, 2020-02-27 12:48:26.082, 207, 1]
+DEBUG MyScheduler_Worker-2 druid.sql.Statement - {conn-10005, pstmt-20038} Types : [TIMESTAMP, TIMESTAMP, VARCHAR, INTEGER, INTEGER, INTEGER, INTEGER, VARCHAR, VARCHAR, INTEGER, INTEGER, INTEGER, INTEGER, INTEGER, TIMESTAMP, BIGINT, INTEGER]
+DEBUG MyScheduler_Worker-2 druid.sql.Statement - {conn-10005, pstmt-20038} update executed. effort 1. 1.106299 millis. UPDATE BATCH_STEP_EXECUTION set START_TIME = ?, END_TIME = ?, STATUS = ?, COMMIT_COUNT = ?, READ_COUNT = ?, FILTER_COUNT = ?, WRITE_COUNT = ?, EXIT_CODE = ?, EXIT_MESSAGE = ?, VERSION = ?, READ_SKIP_COUNT = ?, PROCESS_SKIP_COUNT = ?, WRITE_SKIP_COUNT = ?, ROLLBACK_COUNT = ?, LAST_UPDATED = ? where STEP_EXECUTION_ID = ? and VERSION = ?
+DEBUG MyScheduler_Worker-2 druid.sql.Statement - {conn-10005, pstmt-20038} clearParameters. 
+DEBUG MyScheduler_Worker-2 druid.sql.Statement - {conn-10005, pstmt-20023} Parameters : [124]
+DEBUG MyScheduler_Worker-2 druid.sql.Statement - {conn-10005, pstmt-20023} Types : [BIGINT]
+DEBUG MyScheduler_Worker-2 druid.sql.Statement - {conn-10005, pstmt-20023, rs-51087} query executed. 0.912001 millis. SELECT VERSION FROM BATCH_JOB_EXECUTION WHERE JOB_EXECUTION_ID=?
+DEBUG MyScheduler_Worker-2 druid.sql.ResultSet - {conn-10005, pstmt-20023, rs-51087} open
+DEBUG MyScheduler_Worker-2 druid.sql.ResultSet - {conn-10005, pstmt-20023, rs-51087} Header: [VERSION]
+DEBUG MyScheduler_Worker-2 druid.sql.ResultSet - {conn-10005, pstmt-20023, rs-51087} Result: [1]
+DEBUG MyScheduler_Worker-2 druid.sql.ResultSet - {conn-10005, pstmt-20023, rs-51087} closed
+DEBUG MyScheduler_Worker-2 druid.sql.Statement - {conn-10005, pstmt-20023} clearParameters. 
+DEBUG MyScheduler_Worker-2 druid.sql.Connection - {conn-10005} commited
+DEBUG MyScheduler_Worker-2 druid.sql.Connection - {conn-10005} setAutoCommit true
+DEBUG MyScheduler_Worker-2 druid.sql.Connection - {conn-10005} pool-recycle
+DEBUG MyScheduler_Worker-2 druid.sql.Connection - {conn-10005} pool-connect
+DEBUG MyScheduler_Worker-2 druid.sql.Connection - {conn-10005} setAutoCommit false
+DEBUG MyScheduler_Worker-2 druid.sql.Statement - {conn-10005, pstmt-20040} Parameters : [{"batch.taskletType":"com.ks.qianjiang.tasks.MyTaskTwo","batch.stepType":"org.springframework.batch.core.step.tasklet.TaskletStep"}, null, 207]
+DEBUG MyScheduler_Worker-2 druid.sql.Statement - {conn-10005, pstmt-20040} Types : [VARCHAR, CLOB, BIGINT]
+DEBUG MyScheduler_Worker-2 druid.sql.Statement - {conn-10005, pstmt-20040} update executed. effort 1. 1.264999 millis. UPDATE BATCH_STEP_EXECUTION_CONTEXT SET SHORT_CONTEXT = ?, SERIALIZED_CONTEXT = ? WHERE STEP_EXECUTION_ID = ?
+DEBUG MyScheduler_Worker-2 druid.sql.Statement - {conn-10005, pstmt-20040} clearParameters. 
+DEBUG MyScheduler_Worker-2 druid.sql.Connection - {conn-10005} commited
+DEBUG MyScheduler_Worker-2 druid.sql.Connection - {conn-10005} setAutoCommit true
+DEBUG MyScheduler_Worker-2 druid.sql.Connection - {conn-10005} pool-recycle
+DEBUG MyScheduler_Worker-2 druid.sql.Connection - {conn-10005} pool-connect
+DEBUG MyScheduler_Worker-2 druid.sql.Connection - {conn-10005} setAutoCommit false
+DEBUG MyScheduler_Worker-2 druid.sql.Statement - {conn-10005, pstmt-20038} Parameters : [2020-02-27 12:48:26.071, 2020-02-27 12:48:26.091, COMPLETED, 1, 0, 0, 0, COMPLETED, , 3, 0, 0, 0, 0, 2020-02-27 12:48:26.092, 207, 2]
+DEBUG MyScheduler_Worker-2 druid.sql.Statement - {conn-10005, pstmt-20038} Types : [TIMESTAMP, TIMESTAMP, VARCHAR, INTEGER, INTEGER, INTEGER, INTEGER, VARCHAR, VARCHAR, INTEGER, INTEGER, INTEGER, INTEGER, INTEGER, TIMESTAMP, BIGINT, INTEGER]
+DEBUG MyScheduler_Worker-2 druid.sql.Statement - {conn-10005, pstmt-20038} update executed. effort 1. 1.092 millis. UPDATE BATCH_STEP_EXECUTION set START_TIME = ?, END_TIME = ?, STATUS = ?, COMMIT_COUNT = ?, READ_COUNT = ?, FILTER_COUNT = ?, WRITE_COUNT = ?, EXIT_CODE = ?, EXIT_MESSAGE = ?, VERSION = ?, READ_SKIP_COUNT = ?, PROCESS_SKIP_COUNT = ?, WRITE_SKIP_COUNT = ?, ROLLBACK_COUNT = ?, LAST_UPDATED = ? where STEP_EXECUTION_ID = ? and VERSION = ?
+DEBUG MyScheduler_Worker-2 druid.sql.Statement - {conn-10005, pstmt-20038} clearParameters. 
+DEBUG MyScheduler_Worker-2 druid.sql.Statement - {conn-10005, pstmt-20023} Parameters : [124]
+DEBUG MyScheduler_Worker-2 druid.sql.Statement - {conn-10005, pstmt-20023} Types : [BIGINT]
+DEBUG MyScheduler_Worker-2 druid.sql.Statement - {conn-10005, pstmt-20023, rs-51088} query executed. 0.6697 millis. SELECT VERSION FROM BATCH_JOB_EXECUTION WHERE JOB_EXECUTION_ID=?
+DEBUG MyScheduler_Worker-2 druid.sql.ResultSet - {conn-10005, pstmt-20023, rs-51088} open
+DEBUG MyScheduler_Worker-2 druid.sql.ResultSet - {conn-10005, pstmt-20023, rs-51088} Header: [VERSION]
+DEBUG MyScheduler_Worker-2 druid.sql.ResultSet - {conn-10005, pstmt-20023, rs-51088} Result: [1]
+DEBUG MyScheduler_Worker-2 druid.sql.ResultSet - {conn-10005, pstmt-20023, rs-51088} closed
+DEBUG MyScheduler_Worker-2 druid.sql.Statement - {conn-10005, pstmt-20023} clearParameters. 
+DEBUG MyScheduler_Worker-2 druid.sql.Connection - {conn-10005} commited
+DEBUG MyScheduler_Worker-2 druid.sql.Connection - {conn-10005} setAutoCommit true
+DEBUG MyScheduler_Worker-2 druid.sql.Connection - {conn-10005} pool-recycle
+DEBUG MyScheduler_Worker-2 druid.sql.Connection - {conn-10005} pool-connect
+DEBUG MyScheduler_Worker-2 druid.sql.Connection - {conn-10005} setAutoCommit false
+DEBUG MyScheduler_Worker-2 druid.sql.Statement - {conn-10005, pstmt-20043} Parameters : [{}, null, 124]
+DEBUG MyScheduler_Worker-2 druid.sql.Statement - {conn-10005, pstmt-20043} Types : [VARCHAR, CLOB, BIGINT]
+DEBUG MyScheduler_Worker-2 druid.sql.Statement - {conn-10005, pstmt-20043} update executed. effort 1. 0.854101 millis. UPDATE BATCH_JOB_EXECUTION_CONTEXT SET SHORT_CONTEXT = ?, SERIALIZED_CONTEXT = ? WHERE JOB_EXECUTION_ID = ?
+DEBUG MyScheduler_Worker-2 druid.sql.Statement - {conn-10005, pstmt-20043} clearParameters. 
+DEBUG MyScheduler_Worker-2 druid.sql.Connection - {conn-10005} commited
+DEBUG MyScheduler_Worker-2 druid.sql.Connection - {conn-10005} setAutoCommit true
+DEBUG MyScheduler_Worker-2 druid.sql.Connection - {conn-10005} pool-recycle
+DEBUG MyScheduler_Worker-2 druid.sql.Connection - {conn-10005} pool-connect
+DEBUG MyScheduler_Worker-2 druid.sql.Connection - {conn-10005} setAutoCommit false
+DEBUG MyScheduler_Worker-2 druid.sql.Statement - {conn-10005, pstmt-20023} Parameters : [124]
+DEBUG MyScheduler_Worker-2 druid.sql.Statement - {conn-10005, pstmt-20023} Types : [BIGINT]
+DEBUG MyScheduler_Worker-2 druid.sql.Statement - {conn-10005, pstmt-20023, rs-51089} query executed. 0.8581 millis. SELECT VERSION FROM BATCH_JOB_EXECUTION WHERE JOB_EXECUTION_ID=?
+DEBUG MyScheduler_Worker-2 druid.sql.ResultSet - {conn-10005, pstmt-20023, rs-51089} open
+DEBUG MyScheduler_Worker-2 druid.sql.ResultSet - {conn-10005, pstmt-20023, rs-51089} Header: [VERSION]
+DEBUG MyScheduler_Worker-2 druid.sql.ResultSet - {conn-10005, pstmt-20023, rs-51089} Result: [1]
+DEBUG MyScheduler_Worker-2 druid.sql.ResultSet - {conn-10005, pstmt-20023, rs-51089} closed
+DEBUG MyScheduler_Worker-2 druid.sql.Statement - {conn-10005, pstmt-20023} clearParameters. 
+DEBUG MyScheduler_Worker-2 druid.sql.Statement - {conn-10005, pstmt-20024} Parameters : [124]
+DEBUG MyScheduler_Worker-2 druid.sql.Statement - {conn-10005, pstmt-20024} Types : [BIGINT]
+DEBUG MyScheduler_Worker-2 druid.sql.Statement - {conn-10005, pstmt-20024, rs-51090} query executed. 0.7364 millis. SELECT COUNT(*) FROM BATCH_JOB_EXECUTION WHERE JOB_EXECUTION_ID = ?
+DEBUG MyScheduler_Worker-2 druid.sql.ResultSet - {conn-10005, pstmt-20024, rs-51090} open
+DEBUG MyScheduler_Worker-2 druid.sql.ResultSet - {conn-10005, pstmt-20024, rs-51090} Header: []
+DEBUG MyScheduler_Worker-2 druid.sql.ResultSet - {conn-10005, pstmt-20024, rs-51090} Result: [1]
+DEBUG MyScheduler_Worker-2 druid.sql.ResultSet - {conn-10005, pstmt-20024, rs-51090} closed
+DEBUG MyScheduler_Worker-2 druid.sql.Statement - {conn-10005, pstmt-20024} clearParameters. 
+DEBUG MyScheduler_Worker-2 druid.sql.Statement - {conn-10005, pstmt-20026} Parameters : [2020-02-27 12:48:25.968, 2020-02-27 12:48:26.099, COMPLETED, COMPLETED, , 2, 2020-02-27 12:48:25.959, 2020-02-27 12:48:26.1, 124, 1]
+DEBUG MyScheduler_Worker-2 druid.sql.Statement - {conn-10005, pstmt-20026} Types : [TIMESTAMP, TIMESTAMP, VARCHAR, VARCHAR, VARCHAR, INTEGER, TIMESTAMP, TIMESTAMP, BIGINT, INTEGER]
+DEBUG MyScheduler_Worker-2 druid.sql.Statement - {conn-10005, pstmt-20026} update executed. effort 1. 0.9059 millis. UPDATE BATCH_JOB_EXECUTION set START_TIME = ?, END_TIME = ?,  STATUS = ?, EXIT_CODE = ?, EXIT_MESSAGE = ?, VERSION = ?, CREATE_TIME = ?, LAST_UPDATED = ? where JOB_EXECUTION_ID = ? and VERSION = ?
+DEBUG MyScheduler_Worker-2 druid.sql.Statement - {conn-10005, pstmt-20026} clearParameters. 
+DEBUG MyScheduler_Worker-2 druid.sql.Connection - {conn-10005} commited
+DEBUG MyScheduler_Worker-2 druid.sql.Connection - {conn-10005} setAutoCommit true
+DEBUG MyScheduler_Worker-2 druid.sql.Connection - {conn-10005} pool-recycle
+DEBUG MyScheduler_Worker-3 druid.sql.Connection - {conn-10005} pool-connect
+DEBUG MyScheduler_Worker-3 druid.sql.Connection - {conn-10005} setAutoCommit false
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20007} Parameters : [demoJobOne, 54d1d78b478f9dc215ff5966821bc34e]
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20007} Types : [VARCHAR, VARCHAR]
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20007, rs-51091} query executed. 2.035201 millis. SELECT JOB_INSTANCE_ID, JOB_NAME from BATCH_JOB_INSTANCE where JOB_NAME = ? and JOB_KEY = ?
+DEBUG MyScheduler_Worker-3 druid.sql.ResultSet - {conn-10005, pstmt-20007, rs-51091} open
+DEBUG MyScheduler_Worker-3 druid.sql.ResultSet - {conn-10005, pstmt-20007, rs-51091} Header: [JOB_INSTANCE_ID, JOB_NAME]
+DEBUG MyScheduler_Worker-3 druid.sql.ResultSet - {conn-10005, pstmt-20007, rs-51091} closed
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20007} clearParameters. 
+DEBUG MyScheduler_Worker-3 druid.sql.Connection - {conn-10005} commited
+DEBUG MyScheduler_Worker-3 druid.sql.Connection - {conn-10005} setAutoCommit true
+DEBUG MyScheduler_Worker-3 druid.sql.Connection - {conn-10005} pool-recycle
+DEBUG MyScheduler_Worker-3 druid.sql.Connection - {conn-10005} pool-connect
+DEBUG MyScheduler_Worker-3 druid.sql.Connection - {conn-10005} setAutoCommit false
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20007} Parameters : [demoJobOne, 54d1d78b478f9dc215ff5966821bc34e]
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20007} Types : [VARCHAR, VARCHAR]
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20007, rs-51092} query executed. 2.152099 millis. SELECT JOB_INSTANCE_ID, JOB_NAME from BATCH_JOB_INSTANCE where JOB_NAME = ? and JOB_KEY = ?
+DEBUG MyScheduler_Worker-3 druid.sql.ResultSet - {conn-10005, pstmt-20007, rs-51092} open
+DEBUG MyScheduler_Worker-3 druid.sql.ResultSet - {conn-10005, pstmt-20007, rs-51092} Header: [JOB_INSTANCE_ID, JOB_NAME]
+DEBUG MyScheduler_Worker-3 druid.sql.ResultSet - {conn-10005, pstmt-20007, rs-51092} closed
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20007} clearParameters. 
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20007} Parameters : [demoJobOne, 54d1d78b478f9dc215ff5966821bc34e]
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20007} Types : [VARCHAR, VARCHAR]
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20007, rs-51093} query executed. 1.682701 millis. SELECT JOB_INSTANCE_ID, JOB_NAME from BATCH_JOB_INSTANCE where JOB_NAME = ? and JOB_KEY = ?
+DEBUG MyScheduler_Worker-3 druid.sql.ResultSet - {conn-10005, pstmt-20007, rs-51093} open
+DEBUG MyScheduler_Worker-3 druid.sql.ResultSet - {conn-10005, pstmt-20007, rs-51093} Header: [JOB_INSTANCE_ID, JOB_NAME]
+DEBUG MyScheduler_Worker-3 druid.sql.ResultSet - {conn-10005, pstmt-20007, rs-51093} closed
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20007} clearParameters. 
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, stmt-20188} created
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, stmt-20188} update executed. effort 1. 1.2982 millis. insert into BATCH_JOB_SEQ default values
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, stmt-20188, rs-51094} query executed. 1.1466 millis. select @@identity
+DEBUG MyScheduler_Worker-3 druid.sql.ResultSet - {conn-10005, stmt-20188, rs-51094} open
+DEBUG MyScheduler_Worker-3 druid.sql.ResultSet - {conn-10005, stmt-20188, rs-51094} Header: []
+DEBUG MyScheduler_Worker-3 druid.sql.ResultSet - {conn-10005, stmt-20188, rs-51094} Result: [125]
+DEBUG MyScheduler_Worker-3 druid.sql.ResultSet - {conn-10005, stmt-20188, rs-51094} closed
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, stmt-20188} update executed. effort 1. 1.5255 millis. delete from BATCH_JOB_SEQ where ID < 125
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, stmt-20188} closed
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20015} Parameters : [125, demoJobOne, 54d1d78b478f9dc215ff5966821bc34e, 0]
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20015} Types : [BIGINT, VARCHAR, VARCHAR, INTEGER]
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20015} update executed. effort 1. 1.402301 millis. INSERT into BATCH_JOB_INSTANCE(JOB_INSTANCE_ID, JOB_NAME, JOB_KEY, VERSION) values (?, ?, ?, ?)
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20015} clearParameters. 
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, stmt-20189} created
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, stmt-20189} update executed. effort 1. 1.2538 millis. insert into BATCH_JOB_EXECUTION_SEQ default values
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, stmt-20189, rs-51095} query executed. 1.1785 millis. select @@identity
+DEBUG MyScheduler_Worker-3 druid.sql.ResultSet - {conn-10005, stmt-20189, rs-51095} open
+DEBUG MyScheduler_Worker-3 druid.sql.ResultSet - {conn-10005, stmt-20189, rs-51095} Header: []
+DEBUG MyScheduler_Worker-3 druid.sql.ResultSet - {conn-10005, stmt-20189, rs-51095} Result: [126]
+DEBUG MyScheduler_Worker-3 druid.sql.ResultSet - {conn-10005, stmt-20189, rs-51095} closed
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, stmt-20189} update executed. effort 1. 1.529799 millis. delete from BATCH_JOB_EXECUTION_SEQ where ID < 126
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, stmt-20189} closed
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20018} Parameters : [126, 125, null, null, STARTING, UNKNOWN, , 0, 2020-02-27 12:48:35.962, 2020-02-27 12:48:35.962, null]
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20018} Types : [BIGINT, BIGINT, TIMESTAMP, TIMESTAMP, VARCHAR, VARCHAR, VARCHAR, INTEGER, TIMESTAMP, TIMESTAMP, VARCHAR]
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20018} update executed. effort 1. 1.5005 millis. INSERT into BATCH_JOB_EXECUTION(JOB_EXECUTION_ID, JOB_INSTANCE_ID, START_TIME, END_TIME, STATUS, EXIT_CODE, EXIT_MESSAGE, VERSION, CREATE_TIME, LAST_UPDATED, JOB_CONFIGURATION_LOCATION) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20018} clearParameters. 
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20020} Parameters : [126, JobID, STRING, 1582778915938, 1970-01-01 08:00:00.0, 0, 0.0, Y]
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20020} Types : [BIGINT, VARCHAR, VARCHAR, VARCHAR, TIMESTAMP, BIGINT, DOUBLE, CHAR]
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20020} update executed. effort 1. 1.542299 millis. INSERT into BATCH_JOB_EXECUTION_PARAMS(JOB_EXECUTION_ID, KEY_NAME, TYPE_CD, STRING_VAL, DATE_VAL, LONG_VAL, DOUBLE_VAL, IDENTIFYING) values (?, ?, ?, ?, ?, ?, ?, ?)
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20020} clearParameters. 
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20021} Parameters : [{}, null, 126]
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20021} Types : [VARCHAR, CLOB, BIGINT]
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20021} update executed. effort 1. 1.413 millis. INSERT INTO BATCH_JOB_EXECUTION_CONTEXT (SHORT_CONTEXT, SERIALIZED_CONTEXT, JOB_EXECUTION_ID) VALUES(?, ?, ?)
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20021} clearParameters. 
+DEBUG MyScheduler_Worker-3 druid.sql.Connection - {conn-10005} commited
+DEBUG MyScheduler_Worker-3 druid.sql.Connection - {conn-10005} setAutoCommit true
+DEBUG MyScheduler_Worker-3 druid.sql.Connection - {conn-10005} pool-recycle
+DEBUG MyScheduler_Worker-3 druid.sql.Connection - {conn-10005} pool-connect
+DEBUG MyScheduler_Worker-3 druid.sql.Connection - {conn-10005} setAutoCommit false
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20023} Parameters : [126]
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20023} Types : [BIGINT]
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20023, rs-51096} query executed. 1.344699 millis. SELECT VERSION FROM BATCH_JOB_EXECUTION WHERE JOB_EXECUTION_ID=?
+DEBUG MyScheduler_Worker-3 druid.sql.ResultSet - {conn-10005, pstmt-20023, rs-51096} open
+DEBUG MyScheduler_Worker-3 druid.sql.ResultSet - {conn-10005, pstmt-20023, rs-51096} Header: [VERSION]
+DEBUG MyScheduler_Worker-3 druid.sql.ResultSet - {conn-10005, pstmt-20023, rs-51096} Result: [0]
+DEBUG MyScheduler_Worker-3 druid.sql.ResultSet - {conn-10005, pstmt-20023, rs-51096} closed
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20023} clearParameters. 
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20024} Parameters : [126]
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20024} Types : [BIGINT]
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20024, rs-51097} query executed. 1.304499 millis. SELECT COUNT(*) FROM BATCH_JOB_EXECUTION WHERE JOB_EXECUTION_ID = ?
+DEBUG MyScheduler_Worker-3 druid.sql.ResultSet - {conn-10005, pstmt-20024, rs-51097} open
+DEBUG MyScheduler_Worker-3 druid.sql.ResultSet - {conn-10005, pstmt-20024, rs-51097} Header: []
+DEBUG MyScheduler_Worker-3 druid.sql.ResultSet - {conn-10005, pstmt-20024, rs-51097} Result: [1]
+DEBUG MyScheduler_Worker-3 druid.sql.ResultSet - {conn-10005, pstmt-20024, rs-51097} closed
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20024} clearParameters. 
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20026} Parameters : [2020-02-27 12:48:35.977, null, STARTED, UNKNOWN, , 1, 2020-02-27 12:48:35.962, 2020-02-27 12:48:35.978, 126, 0]
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20026} Types : [TIMESTAMP, TIMESTAMP, VARCHAR, VARCHAR, VARCHAR, INTEGER, TIMESTAMP, TIMESTAMP, BIGINT, INTEGER]
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20026} update executed. effort 1. 1.476001 millis. UPDATE BATCH_JOB_EXECUTION set START_TIME = ?, END_TIME = ?,  STATUS = ?, EXIT_CODE = ?, EXIT_MESSAGE = ?, VERSION = ?, CREATE_TIME = ?, LAST_UPDATED = ? where JOB_EXECUTION_ID = ? and VERSION = ?
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20026} clearParameters. 
+DEBUG MyScheduler_Worker-3 druid.sql.Connection - {conn-10005} commited
+DEBUG MyScheduler_Worker-3 druid.sql.Connection - {conn-10005} setAutoCommit true
+DEBUG MyScheduler_Worker-3 druid.sql.Connection - {conn-10005} pool-recycle
+DEBUG MyScheduler_Worker-3 druid.sql.Connection - {conn-10005} pool-connect
+DEBUG MyScheduler_Worker-3 druid.sql.Connection - {conn-10005} setAutoCommit false
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20028} Parameters : [125]
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20028} Types : [BIGINT]
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20028, rs-51098} query executed. 1.718901 millis. SELECT JOB_EXECUTION_ID, START_TIME, END_TIME, STATUS, EXIT_CODE, EXIT_MESSAGE, CREATE_TIME, LAST_UPDATED, VERSION, JOB_CONFIGURATION_LOCATION from BATCH_JOB_EXECUTION where JOB_INSTANCE_ID = ? order by JOB_EXECUTION_ID desc
+DEBUG MyScheduler_Worker-3 druid.sql.ResultSet - {conn-10005, pstmt-20028, rs-51098} open
+DEBUG MyScheduler_Worker-3 druid.sql.ResultSet - {conn-10005, pstmt-20028, rs-51098} Header: [JOB_EXECUTION_ID, START_TIME, END_TIME, STATUS, EXIT_CODE, EXIT_MESSAGE, CREATE_TIME, LAST_UPDATED, VERSION, JOB_CONFIGURATION_LOCATION]
+DEBUG MyScheduler_Worker-3 druid.sql.ResultSet - {conn-10005, pstmt-20028, rs-51098} Result: [126, 2020-02-27 12:48:35.977, null, STARTED, UNKNOWN, , 2020-02-27 12:48:35.963, 2020-02-27 12:48:35.977, 1, null]
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20030} Parameters : [126]
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20030} Types : [BIGINT]
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20030, rs-51099} query executed. 1.4786 millis. SELECT JOB_EXECUTION_ID, KEY_NAME, TYPE_CD, STRING_VAL, DATE_VAL, LONG_VAL, DOUBLE_VAL, IDENTIFYING from BATCH_JOB_EXECUTION_PARAMS where JOB_EXECUTION_ID = ?
+DEBUG MyScheduler_Worker-3 druid.sql.ResultSet - {conn-10005, pstmt-20030, rs-51099} open
+DEBUG MyScheduler_Worker-3 druid.sql.ResultSet - {conn-10005, pstmt-20030, rs-51099} Header: [JOB_EXECUTION_ID, KEY_NAME, TYPE_CD, STRING_VAL, DATE_VAL, LONG_VAL, DOUBLE_VAL, IDENTIFYING]
+DEBUG MyScheduler_Worker-3 druid.sql.ResultSet - {conn-10005, pstmt-20030, rs-51099} Result: [126, JobID, STRING, 1582778915938, 1970-01-01 08:00:00.0, 0, 0.0, Y]
+DEBUG MyScheduler_Worker-3 druid.sql.ResultSet - {conn-10005, pstmt-20030, rs-51099} closed
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20030} clearParameters. 
+DEBUG MyScheduler_Worker-3 druid.sql.ResultSet - {conn-10005, pstmt-20028, rs-51098} closed
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20028} clearParameters. 
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20031} Parameters : [126]
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20031} Types : [BIGINT]
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20031, rs-51100} query executed. 2.296 millis. SELECT STEP_EXECUTION_ID, STEP_NAME, START_TIME, END_TIME, STATUS, COMMIT_COUNT, READ_COUNT, FILTER_COUNT, WRITE_COUNT, EXIT_CODE, EXIT_MESSAGE, READ_SKIP_COUNT, WRITE_SKIP_COUNT, PROCESS_SKIP_COUNT, ROLLBACK_COUNT, LAST_UPDATED, VERSION from BATCH_STEP_EXECUTION where JOB_EXECUTION_ID = ? order by STEP_EXECUTION_ID
+DEBUG MyScheduler_Worker-3 druid.sql.ResultSet - {conn-10005, pstmt-20031, rs-51100} open
+DEBUG MyScheduler_Worker-3 druid.sql.ResultSet - {conn-10005, pstmt-20031, rs-51100} Header: [STEP_EXECUTION_ID, STEP_NAME, START_TIME, END_TIME, STATUS, COMMIT_COUNT, READ_COUNT, FILTER_COUNT, WRITE_COUNT, EXIT_CODE, EXIT_MESSAGE, READ_SKIP_COUNT, WRITE_SKIP_COUNT, PROCESS_SKIP_COUNT, ROLLBACK_COUNT, LAST_UPDATED, VERSION]
+DEBUG MyScheduler_Worker-3 druid.sql.ResultSet - {conn-10005, pstmt-20031, rs-51100} closed
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20031} clearParameters. 
+DEBUG MyScheduler_Worker-3 druid.sql.Connection - {conn-10005} commited
+DEBUG MyScheduler_Worker-3 druid.sql.Connection - {conn-10005} setAutoCommit true
+DEBUG MyScheduler_Worker-3 druid.sql.Connection - {conn-10005} pool-recycle
+DEBUG MyScheduler_Worker-3 druid.sql.Connection - {conn-10005} pool-connect
+DEBUG MyScheduler_Worker-3 druid.sql.Connection - {conn-10005} setAutoCommit false
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20028} Parameters : [125]
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20028} Types : [BIGINT]
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20028, rs-51101} query executed. 1.6793 millis. SELECT JOB_EXECUTION_ID, START_TIME, END_TIME, STATUS, EXIT_CODE, EXIT_MESSAGE, CREATE_TIME, LAST_UPDATED, VERSION, JOB_CONFIGURATION_LOCATION from BATCH_JOB_EXECUTION where JOB_INSTANCE_ID = ? order by JOB_EXECUTION_ID desc
+DEBUG MyScheduler_Worker-3 druid.sql.ResultSet - {conn-10005, pstmt-20028, rs-51101} open
+DEBUG MyScheduler_Worker-3 druid.sql.ResultSet - {conn-10005, pstmt-20028, rs-51101} Header: [JOB_EXECUTION_ID, START_TIME, END_TIME, STATUS, EXIT_CODE, EXIT_MESSAGE, CREATE_TIME, LAST_UPDATED, VERSION, JOB_CONFIGURATION_LOCATION]
+DEBUG MyScheduler_Worker-3 druid.sql.ResultSet - {conn-10005, pstmt-20028, rs-51101} Result: [126, 2020-02-27 12:48:35.977, null, STARTED, UNKNOWN, , 2020-02-27 12:48:35.963, 2020-02-27 12:48:35.977, 1, null]
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20030} Parameters : [126]
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20030} Types : [BIGINT]
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20030, rs-51102} query executed. 1.6786 millis. SELECT JOB_EXECUTION_ID, KEY_NAME, TYPE_CD, STRING_VAL, DATE_VAL, LONG_VAL, DOUBLE_VAL, IDENTIFYING from BATCH_JOB_EXECUTION_PARAMS where JOB_EXECUTION_ID = ?
+DEBUG MyScheduler_Worker-3 druid.sql.ResultSet - {conn-10005, pstmt-20030, rs-51102} open
+DEBUG MyScheduler_Worker-3 druid.sql.ResultSet - {conn-10005, pstmt-20030, rs-51102} Header: [JOB_EXECUTION_ID, KEY_NAME, TYPE_CD, STRING_VAL, DATE_VAL, LONG_VAL, DOUBLE_VAL, IDENTIFYING]
+DEBUG MyScheduler_Worker-3 druid.sql.ResultSet - {conn-10005, pstmt-20030, rs-51102} Result: [126, JobID, STRING, 1582778915938, 1970-01-01 08:00:00.0, 0, 0.0, Y]
+DEBUG MyScheduler_Worker-3 druid.sql.ResultSet - {conn-10005, pstmt-20030, rs-51102} closed
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20030} clearParameters. 
+DEBUG MyScheduler_Worker-3 druid.sql.ResultSet - {conn-10005, pstmt-20028, rs-51101} closed
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20028} clearParameters. 
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20031} Parameters : [126]
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20031} Types : [BIGINT]
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20031, rs-51103} query executed. 1.8408 millis. SELECT STEP_EXECUTION_ID, STEP_NAME, START_TIME, END_TIME, STATUS, COMMIT_COUNT, READ_COUNT, FILTER_COUNT, WRITE_COUNT, EXIT_CODE, EXIT_MESSAGE, READ_SKIP_COUNT, WRITE_SKIP_COUNT, PROCESS_SKIP_COUNT, ROLLBACK_COUNT, LAST_UPDATED, VERSION from BATCH_STEP_EXECUTION where JOB_EXECUTION_ID = ? order by STEP_EXECUTION_ID
+DEBUG MyScheduler_Worker-3 druid.sql.ResultSet - {conn-10005, pstmt-20031, rs-51103} open
+DEBUG MyScheduler_Worker-3 druid.sql.ResultSet - {conn-10005, pstmt-20031, rs-51103} Header: [STEP_EXECUTION_ID, STEP_NAME, START_TIME, END_TIME, STATUS, COMMIT_COUNT, READ_COUNT, FILTER_COUNT, WRITE_COUNT, EXIT_CODE, EXIT_MESSAGE, READ_SKIP_COUNT, WRITE_SKIP_COUNT, PROCESS_SKIP_COUNT, ROLLBACK_COUNT, LAST_UPDATED, VERSION]
+DEBUG MyScheduler_Worker-3 druid.sql.ResultSet - {conn-10005, pstmt-20031, rs-51103} closed
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20031} clearParameters. 
+DEBUG MyScheduler_Worker-3 druid.sql.Connection - {conn-10005} commited
+DEBUG MyScheduler_Worker-3 druid.sql.Connection - {conn-10005} setAutoCommit true
+DEBUG MyScheduler_Worker-3 druid.sql.Connection - {conn-10005} pool-recycle
+DEBUG MyScheduler_Worker-3 druid.sql.Connection - {conn-10005} pool-connect
+DEBUG MyScheduler_Worker-3 druid.sql.Connection - {conn-10005} setAutoCommit false
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, stmt-20190} created
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, stmt-20190} update executed. effort 1. 1.556601 millis. insert into BATCH_STEP_EXECUTION_SEQ default values
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, stmt-20190, rs-51104} query executed. 1.286201 millis. select @@identity
+DEBUG MyScheduler_Worker-3 druid.sql.ResultSet - {conn-10005, stmt-20190, rs-51104} open
+DEBUG MyScheduler_Worker-3 druid.sql.ResultSet - {conn-10005, stmt-20190, rs-51104} Header: []
+DEBUG MyScheduler_Worker-3 druid.sql.ResultSet - {conn-10005, stmt-20190, rs-51104} Result: [208]
+DEBUG MyScheduler_Worker-3 druid.sql.ResultSet - {conn-10005, stmt-20190, rs-51104} closed
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, stmt-20190} update executed. effort 1. 1.4815 millis. delete from BATCH_STEP_EXECUTION_SEQ where ID < 208
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, stmt-20190} closed
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20033} Parameters : [208, 0, stepOne, 126, 2020-02-27 12:48:36.01, null, STARTING, 0, 0, 0, 0, EXECUTING, , 0, 0, 0, 0, 2020-02-27 12:48:36.011]
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20033} Types : [BIGINT, INTEGER, VARCHAR, BIGINT, TIMESTAMP, TIMESTAMP, VARCHAR, INTEGER, INTEGER, INTEGER, INTEGER, VARCHAR, VARCHAR, INTEGER, INTEGER, INTEGER, INTEGER, TIMESTAMP]
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20033} update executed. effort 1. 1.5732 millis. INSERT into BATCH_STEP_EXECUTION(STEP_EXECUTION_ID, VERSION, STEP_NAME, JOB_EXECUTION_ID, START_TIME, END_TIME, STATUS, COMMIT_COUNT, READ_COUNT, FILTER_COUNT, WRITE_COUNT, EXIT_CODE, EXIT_MESSAGE, READ_SKIP_COUNT, WRITE_SKIP_COUNT, PROCESS_SKIP_COUNT, ROLLBACK_COUNT, LAST_UPDATED) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20033} clearParameters. 
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20035} Parameters : [{}, null, 208]
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20035} Types : [VARCHAR, CLOB, BIGINT]
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20035} update executed. effort 1. 1.4244 millis. INSERT INTO BATCH_STEP_EXECUTION_CONTEXT (SHORT_CONTEXT, SERIALIZED_CONTEXT, STEP_EXECUTION_ID) VALUES(?, ?, ?)
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20035} clearParameters. 
+DEBUG MyScheduler_Worker-3 druid.sql.Connection - {conn-10005} commited
+DEBUG MyScheduler_Worker-3 druid.sql.Connection - {conn-10005} setAutoCommit true
+DEBUG MyScheduler_Worker-3 druid.sql.Connection - {conn-10005} pool-recycle
+DEBUG MyScheduler_Worker-3 druid.sql.Connection - {conn-10005} pool-connect
+DEBUG MyScheduler_Worker-3 druid.sql.Connection - {conn-10005} setAutoCommit false
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20038} Parameters : [2020-02-27 12:48:36.023, null, STARTED, 0, 0, 0, 0, EXECUTING, , 1, 0, 0, 0, 0, 2020-02-27 12:48:36.025, 208, 0]
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20038} Types : [TIMESTAMP, TIMESTAMP, VARCHAR, INTEGER, INTEGER, INTEGER, INTEGER, VARCHAR, VARCHAR, INTEGER, INTEGER, INTEGER, INTEGER, INTEGER, TIMESTAMP, BIGINT, INTEGER]
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20038} update executed. effort 1. 1.6924 millis. UPDATE BATCH_STEP_EXECUTION set START_TIME = ?, END_TIME = ?, STATUS = ?, COMMIT_COUNT = ?, READ_COUNT = ?, FILTER_COUNT = ?, WRITE_COUNT = ?, EXIT_CODE = ?, EXIT_MESSAGE = ?, VERSION = ?, READ_SKIP_COUNT = ?, PROCESS_SKIP_COUNT = ?, WRITE_SKIP_COUNT = ?, ROLLBACK_COUNT = ?, LAST_UPDATED = ? where STEP_EXECUTION_ID = ? and VERSION = ?
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20038} clearParameters. 
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20023} Parameters : [126]
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20023} Types : [BIGINT]
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20023, rs-51105} query executed. 1.367999 millis. SELECT VERSION FROM BATCH_JOB_EXECUTION WHERE JOB_EXECUTION_ID=?
+DEBUG MyScheduler_Worker-3 druid.sql.ResultSet - {conn-10005, pstmt-20023, rs-51105} open
+DEBUG MyScheduler_Worker-3 druid.sql.ResultSet - {conn-10005, pstmt-20023, rs-51105} Header: [VERSION]
+DEBUG MyScheduler_Worker-3 druid.sql.ResultSet - {conn-10005, pstmt-20023, rs-51105} Result: [1]
+DEBUG MyScheduler_Worker-3 druid.sql.ResultSet - {conn-10005, pstmt-20023, rs-51105} closed
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20023} clearParameters. 
+DEBUG MyScheduler_Worker-3 druid.sql.Connection - {conn-10005} commited
+DEBUG MyScheduler_Worker-3 druid.sql.Connection - {conn-10005} setAutoCommit true
+DEBUG MyScheduler_Worker-3 druid.sql.Connection - {conn-10005} pool-recycle
+DEBUG MyScheduler_Worker-3 druid.sql.Connection - {conn-10005} pool-connect
+DEBUG MyScheduler_Worker-3 druid.sql.Connection - {conn-10005} setAutoCommit false
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20040} Parameters : [{"batch.taskletType":"com.ks.qianjiang.tasks.MyTaskOne","batch.stepType":"org.springframework.batch.core.step.tasklet.TaskletStep"}, null, 208]
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20040} Types : [VARCHAR, CLOB, BIGINT]
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20040} update executed. effort 1. 1.797799 millis. UPDATE BATCH_STEP_EXECUTION_CONTEXT SET SHORT_CONTEXT = ?, SERIALIZED_CONTEXT = ? WHERE STEP_EXECUTION_ID = ?
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20040} clearParameters. 
+DEBUG MyScheduler_Worker-3 druid.sql.Connection - {conn-10005} commited
+DEBUG MyScheduler_Worker-3 druid.sql.Connection - {conn-10005} setAutoCommit true
+DEBUG MyScheduler_Worker-3 druid.sql.Connection - {conn-10005} pool-recycle
+DEBUG MyScheduler_Worker-3 druid.sql.Connection - {conn-10005} pool-connect
+DEBUG MyScheduler_Worker-3 druid.sql.Connection - {conn-10005} setAutoCommit false
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20040} Parameters : [{"batch.taskletType":"com.ks.qianjiang.tasks.MyTaskOne","batch.stepType":"org.springframework.batch.core.step.tasklet.TaskletStep"}, null, 208]
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20040} Types : [VARCHAR, CLOB, BIGINT]
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20040} update executed. effort 1. 1.716799 millis. UPDATE BATCH_STEP_EXECUTION_CONTEXT SET SHORT_CONTEXT = ?, SERIALIZED_CONTEXT = ? WHERE STEP_EXECUTION_ID = ?
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20040} clearParameters. 
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20038} Parameters : [2020-02-27 12:48:36.023, null, STARTED, 1, 0, 0, 0, EXECUTING, , 2, 0, 0, 0, 0, 2020-02-27 12:48:36.043, 208, 1]
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20038} Types : [TIMESTAMP, TIMESTAMP, VARCHAR, INTEGER, INTEGER, INTEGER, INTEGER, VARCHAR, VARCHAR, INTEGER, INTEGER, INTEGER, INTEGER, INTEGER, TIMESTAMP, BIGINT, INTEGER]
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20038} update executed. effort 1. 1.678399 millis. UPDATE BATCH_STEP_EXECUTION set START_TIME = ?, END_TIME = ?, STATUS = ?, COMMIT_COUNT = ?, READ_COUNT = ?, FILTER_COUNT = ?, WRITE_COUNT = ?, EXIT_CODE = ?, EXIT_MESSAGE = ?, VERSION = ?, READ_SKIP_COUNT = ?, PROCESS_SKIP_COUNT = ?, WRITE_SKIP_COUNT = ?, ROLLBACK_COUNT = ?, LAST_UPDATED = ? where STEP_EXECUTION_ID = ? and VERSION = ?
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20038} clearParameters. 
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20023} Parameters : [126]
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20023} Types : [BIGINT]
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20023, rs-51106} query executed. 1.6276 millis. SELECT VERSION FROM BATCH_JOB_EXECUTION WHERE JOB_EXECUTION_ID=?
+DEBUG MyScheduler_Worker-3 druid.sql.ResultSet - {conn-10005, pstmt-20023, rs-51106} open
+DEBUG MyScheduler_Worker-3 druid.sql.ResultSet - {conn-10005, pstmt-20023, rs-51106} Header: [VERSION]
+DEBUG MyScheduler_Worker-3 druid.sql.ResultSet - {conn-10005, pstmt-20023, rs-51106} Result: [1]
+DEBUG MyScheduler_Worker-3 druid.sql.ResultSet - {conn-10005, pstmt-20023, rs-51106} closed
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20023} clearParameters. 
+DEBUG MyScheduler_Worker-3 druid.sql.Connection - {conn-10005} commited
+DEBUG MyScheduler_Worker-3 druid.sql.Connection - {conn-10005} setAutoCommit true
+DEBUG MyScheduler_Worker-3 druid.sql.Connection - {conn-10005} pool-recycle
+DEBUG MyScheduler_Worker-3 druid.sql.Connection - {conn-10005} pool-connect
+DEBUG MyScheduler_Worker-3 druid.sql.Connection - {conn-10005} setAutoCommit false
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20040} Parameters : [{"batch.taskletType":"com.ks.qianjiang.tasks.MyTaskOne","batch.stepType":"org.springframework.batch.core.step.tasklet.TaskletStep"}, null, 208]
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20040} Types : [VARCHAR, CLOB, BIGINT]
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20040} update executed. effort 1. 1.675799 millis. UPDATE BATCH_STEP_EXECUTION_CONTEXT SET SHORT_CONTEXT = ?, SERIALIZED_CONTEXT = ? WHERE STEP_EXECUTION_ID = ?
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20040} clearParameters. 
+DEBUG MyScheduler_Worker-3 druid.sql.Connection - {conn-10005} commited
+DEBUG MyScheduler_Worker-3 druid.sql.Connection - {conn-10005} setAutoCommit true
+DEBUG MyScheduler_Worker-3 druid.sql.Connection - {conn-10005} pool-recycle
+DEBUG MyScheduler_Worker-3 druid.sql.Connection - {conn-10005} pool-connect
+DEBUG MyScheduler_Worker-3 druid.sql.Connection - {conn-10005} setAutoCommit false
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20038} Parameters : [2020-02-27 12:48:36.023, 2020-02-27 12:48:36.057, COMPLETED, 1, 0, 0, 0, COMPLETED, , 3, 0, 0, 0, 0, 2020-02-27 12:48:36.059, 208, 2]
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20038} Types : [TIMESTAMP, TIMESTAMP, VARCHAR, INTEGER, INTEGER, INTEGER, INTEGER, VARCHAR, VARCHAR, INTEGER, INTEGER, INTEGER, INTEGER, INTEGER, TIMESTAMP, BIGINT, INTEGER]
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20038} update executed. effort 1. 1.6793 millis. UPDATE BATCH_STEP_EXECUTION set START_TIME = ?, END_TIME = ?, STATUS = ?, COMMIT_COUNT = ?, READ_COUNT = ?, FILTER_COUNT = ?, WRITE_COUNT = ?, EXIT_CODE = ?, EXIT_MESSAGE = ?, VERSION = ?, READ_SKIP_COUNT = ?, PROCESS_SKIP_COUNT = ?, WRITE_SKIP_COUNT = ?, ROLLBACK_COUNT = ?, LAST_UPDATED = ? where STEP_EXECUTION_ID = ? and VERSION = ?
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20038} clearParameters. 
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20023} Parameters : [126]
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20023} Types : [BIGINT]
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20023, rs-51107} query executed. 1.3916 millis. SELECT VERSION FROM BATCH_JOB_EXECUTION WHERE JOB_EXECUTION_ID=?
+DEBUG MyScheduler_Worker-3 druid.sql.ResultSet - {conn-10005, pstmt-20023, rs-51107} open
+DEBUG MyScheduler_Worker-3 druid.sql.ResultSet - {conn-10005, pstmt-20023, rs-51107} Header: [VERSION]
+DEBUG MyScheduler_Worker-3 druid.sql.ResultSet - {conn-10005, pstmt-20023, rs-51107} Result: [1]
+DEBUG MyScheduler_Worker-3 druid.sql.ResultSet - {conn-10005, pstmt-20023, rs-51107} closed
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20023} clearParameters. 
+DEBUG MyScheduler_Worker-3 druid.sql.Connection - {conn-10005} commited
+DEBUG MyScheduler_Worker-3 druid.sql.Connection - {conn-10005} setAutoCommit true
+DEBUG MyScheduler_Worker-3 druid.sql.Connection - {conn-10005} pool-recycle
+DEBUG MyScheduler_Worker-3 druid.sql.Connection - {conn-10005} pool-connect
+DEBUG MyScheduler_Worker-3 druid.sql.Connection - {conn-10005} setAutoCommit false
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20043} Parameters : [{}, null, 126]
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20043} Types : [VARCHAR, CLOB, BIGINT]
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20043} update executed. effort 1. 1.6624 millis. UPDATE BATCH_JOB_EXECUTION_CONTEXT SET SHORT_CONTEXT = ?, SERIALIZED_CONTEXT = ? WHERE JOB_EXECUTION_ID = ?
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20043} clearParameters. 
+DEBUG MyScheduler_Worker-3 druid.sql.Connection - {conn-10005} commited
+DEBUG MyScheduler_Worker-3 druid.sql.Connection - {conn-10005} setAutoCommit true
+DEBUG MyScheduler_Worker-3 druid.sql.Connection - {conn-10005} pool-recycle
+DEBUG MyScheduler_Worker-3 druid.sql.Connection - {conn-10005} pool-connect
+DEBUG MyScheduler_Worker-3 druid.sql.Connection - {conn-10005} setAutoCommit false
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20028} Parameters : [125]
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20028} Types : [BIGINT]
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20028, rs-51108} query executed. 1.8502 millis. SELECT JOB_EXECUTION_ID, START_TIME, END_TIME, STATUS, EXIT_CODE, EXIT_MESSAGE, CREATE_TIME, LAST_UPDATED, VERSION, JOB_CONFIGURATION_LOCATION from BATCH_JOB_EXECUTION where JOB_INSTANCE_ID = ? order by JOB_EXECUTION_ID desc
+DEBUG MyScheduler_Worker-3 druid.sql.ResultSet - {conn-10005, pstmt-20028, rs-51108} open
+DEBUG MyScheduler_Worker-3 druid.sql.ResultSet - {conn-10005, pstmt-20028, rs-51108} Header: [JOB_EXECUTION_ID, START_TIME, END_TIME, STATUS, EXIT_CODE, EXIT_MESSAGE, CREATE_TIME, LAST_UPDATED, VERSION, JOB_CONFIGURATION_LOCATION]
+DEBUG MyScheduler_Worker-3 druid.sql.ResultSet - {conn-10005, pstmt-20028, rs-51108} Result: [126, 2020-02-27 12:48:35.977, null, STARTED, UNKNOWN, , 2020-02-27 12:48:35.963, 2020-02-27 12:48:35.977, 1, null]
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20030} Parameters : [126]
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20030} Types : [BIGINT]
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20030, rs-51109} query executed. 1.6521 millis. SELECT JOB_EXECUTION_ID, KEY_NAME, TYPE_CD, STRING_VAL, DATE_VAL, LONG_VAL, DOUBLE_VAL, IDENTIFYING from BATCH_JOB_EXECUTION_PARAMS where JOB_EXECUTION_ID = ?
+DEBUG MyScheduler_Worker-3 druid.sql.ResultSet - {conn-10005, pstmt-20030, rs-51109} open
+DEBUG MyScheduler_Worker-3 druid.sql.ResultSet - {conn-10005, pstmt-20030, rs-51109} Header: [JOB_EXECUTION_ID, KEY_NAME, TYPE_CD, STRING_VAL, DATE_VAL, LONG_VAL, DOUBLE_VAL, IDENTIFYING]
+DEBUG MyScheduler_Worker-3 druid.sql.ResultSet - {conn-10005, pstmt-20030, rs-51109} Result: [126, JobID, STRING, 1582778915938, 1970-01-01 08:00:00.0, 0, 0.0, Y]
+DEBUG MyScheduler_Worker-3 druid.sql.ResultSet - {conn-10005, pstmt-20030, rs-51109} closed
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20030} clearParameters. 
+DEBUG MyScheduler_Worker-3 druid.sql.ResultSet - {conn-10005, pstmt-20028, rs-51108} closed
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20028} clearParameters. 
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20031} Parameters : [126]
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20031} Types : [BIGINT]
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20031, rs-51110} query executed. 1.855801 millis. SELECT STEP_EXECUTION_ID, STEP_NAME, START_TIME, END_TIME, STATUS, COMMIT_COUNT, READ_COUNT, FILTER_COUNT, WRITE_COUNT, EXIT_CODE, EXIT_MESSAGE, READ_SKIP_COUNT, WRITE_SKIP_COUNT, PROCESS_SKIP_COUNT, ROLLBACK_COUNT, LAST_UPDATED, VERSION from BATCH_STEP_EXECUTION where JOB_EXECUTION_ID = ? order by STEP_EXECUTION_ID
+DEBUG MyScheduler_Worker-3 druid.sql.ResultSet - {conn-10005, pstmt-20031, rs-51110} open
+DEBUG MyScheduler_Worker-3 druid.sql.ResultSet - {conn-10005, pstmt-20031, rs-51110} Header: [STEP_EXECUTION_ID, STEP_NAME, START_TIME, END_TIME, STATUS, COMMIT_COUNT, READ_COUNT, FILTER_COUNT, WRITE_COUNT, EXIT_CODE, EXIT_MESSAGE, READ_SKIP_COUNT, WRITE_SKIP_COUNT, PROCESS_SKIP_COUNT, ROLLBACK_COUNT, LAST_UPDATED, VERSION]
+DEBUG MyScheduler_Worker-3 druid.sql.ResultSet - {conn-10005, pstmt-20031, rs-51110} Result: [208, stepOne, 2020-02-27 12:48:36.023, 2020-02-27 12:48:36.057, COMPLETED, 1, 0, 0, 0, COMPLETED, , 0, 0, 0, 0, 2020-02-27 12:48:36.06, 3]
+DEBUG MyScheduler_Worker-3 druid.sql.ResultSet - {conn-10005, pstmt-20031, rs-51110} closed
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20031} clearParameters. 
+DEBUG MyScheduler_Worker-3 druid.sql.Connection - {conn-10005} commited
+DEBUG MyScheduler_Worker-3 druid.sql.Connection - {conn-10005} setAutoCommit true
+DEBUG MyScheduler_Worker-3 druid.sql.Connection - {conn-10005} pool-recycle
+DEBUG MyScheduler_Worker-3 druid.sql.Connection - {conn-10005} pool-connect
+DEBUG MyScheduler_Worker-3 druid.sql.Connection - {conn-10005} setAutoCommit false
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20028} Parameters : [125]
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20028} Types : [BIGINT]
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20028, rs-51111} query executed. 1.7271 millis. SELECT JOB_EXECUTION_ID, START_TIME, END_TIME, STATUS, EXIT_CODE, EXIT_MESSAGE, CREATE_TIME, LAST_UPDATED, VERSION, JOB_CONFIGURATION_LOCATION from BATCH_JOB_EXECUTION where JOB_INSTANCE_ID = ? order by JOB_EXECUTION_ID desc
+DEBUG MyScheduler_Worker-3 druid.sql.ResultSet - {conn-10005, pstmt-20028, rs-51111} open
+DEBUG MyScheduler_Worker-3 druid.sql.ResultSet - {conn-10005, pstmt-20028, rs-51111} Header: [JOB_EXECUTION_ID, START_TIME, END_TIME, STATUS, EXIT_CODE, EXIT_MESSAGE, CREATE_TIME, LAST_UPDATED, VERSION, JOB_CONFIGURATION_LOCATION]
+DEBUG MyScheduler_Worker-3 druid.sql.ResultSet - {conn-10005, pstmt-20028, rs-51111} Result: [126, 2020-02-27 12:48:35.977, null, STARTED, UNKNOWN, , 2020-02-27 12:48:35.963, 2020-02-27 12:48:35.977, 1, null]
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20030} Parameters : [126]
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20030} Types : [BIGINT]
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20030, rs-51112} query executed. 1.963 millis. SELECT JOB_EXECUTION_ID, KEY_NAME, TYPE_CD, STRING_VAL, DATE_VAL, LONG_VAL, DOUBLE_VAL, IDENTIFYING from BATCH_JOB_EXECUTION_PARAMS where JOB_EXECUTION_ID = ?
+DEBUG MyScheduler_Worker-3 druid.sql.ResultSet - {conn-10005, pstmt-20030, rs-51112} open
+DEBUG MyScheduler_Worker-3 druid.sql.ResultSet - {conn-10005, pstmt-20030, rs-51112} Header: [JOB_EXECUTION_ID, KEY_NAME, TYPE_CD, STRING_VAL, DATE_VAL, LONG_VAL, DOUBLE_VAL, IDENTIFYING]
+DEBUG MyScheduler_Worker-3 druid.sql.ResultSet - {conn-10005, pstmt-20030, rs-51112} Result: [126, JobID, STRING, 1582778915938, 1970-01-01 08:00:00.0, 0, 0.0, Y]
+DEBUG MyScheduler_Worker-3 druid.sql.ResultSet - {conn-10005, pstmt-20030, rs-51112} closed
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20030} clearParameters. 
+DEBUG MyScheduler_Worker-3 druid.sql.ResultSet - {conn-10005, pstmt-20028, rs-51111} closed
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20028} clearParameters. 
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20031} Parameters : [126]
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20031} Types : [BIGINT]
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20031, rs-51113} query executed. 1.560699 millis. SELECT STEP_EXECUTION_ID, STEP_NAME, START_TIME, END_TIME, STATUS, COMMIT_COUNT, READ_COUNT, FILTER_COUNT, WRITE_COUNT, EXIT_CODE, EXIT_MESSAGE, READ_SKIP_COUNT, WRITE_SKIP_COUNT, PROCESS_SKIP_COUNT, ROLLBACK_COUNT, LAST_UPDATED, VERSION from BATCH_STEP_EXECUTION where JOB_EXECUTION_ID = ? order by STEP_EXECUTION_ID
+DEBUG MyScheduler_Worker-3 druid.sql.ResultSet - {conn-10005, pstmt-20031, rs-51113} open
+DEBUG MyScheduler_Worker-3 druid.sql.ResultSet - {conn-10005, pstmt-20031, rs-51113} Header: [STEP_EXECUTION_ID, STEP_NAME, START_TIME, END_TIME, STATUS, COMMIT_COUNT, READ_COUNT, FILTER_COUNT, WRITE_COUNT, EXIT_CODE, EXIT_MESSAGE, READ_SKIP_COUNT, WRITE_SKIP_COUNT, PROCESS_SKIP_COUNT, ROLLBACK_COUNT, LAST_UPDATED, VERSION]
+DEBUG MyScheduler_Worker-3 druid.sql.ResultSet - {conn-10005, pstmt-20031, rs-51113} Result: [208, stepOne, 2020-02-27 12:48:36.023, 2020-02-27 12:48:36.057, COMPLETED, 1, 0, 0, 0, COMPLETED, , 0, 0, 0, 0, 2020-02-27 12:48:36.06, 3]
+DEBUG MyScheduler_Worker-3 druid.sql.ResultSet - {conn-10005, pstmt-20031, rs-51113} closed
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20031} clearParameters. 
+DEBUG MyScheduler_Worker-3 druid.sql.Connection - {conn-10005} commited
+DEBUG MyScheduler_Worker-3 druid.sql.Connection - {conn-10005} setAutoCommit true
+DEBUG MyScheduler_Worker-3 druid.sql.Connection - {conn-10005} pool-recycle
+DEBUG MyScheduler_Worker-3 druid.sql.Connection - {conn-10005} pool-connect
+DEBUG MyScheduler_Worker-3 druid.sql.Connection - {conn-10005} setAutoCommit false
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, stmt-20191} created
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, stmt-20191} update executed. effort 1. 1.1752 millis. insert into BATCH_STEP_EXECUTION_SEQ default values
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, stmt-20191, rs-51114} query executed. 1.301 millis. select @@identity
+DEBUG MyScheduler_Worker-3 druid.sql.ResultSet - {conn-10005, stmt-20191, rs-51114} open
+DEBUG MyScheduler_Worker-3 druid.sql.ResultSet - {conn-10005, stmt-20191, rs-51114} Header: []
+DEBUG MyScheduler_Worker-3 druid.sql.ResultSet - {conn-10005, stmt-20191, rs-51114} Result: [209]
+DEBUG MyScheduler_Worker-3 druid.sql.ResultSet - {conn-10005, stmt-20191, rs-51114} closed
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, stmt-20191} update executed. effort 1. 1.443899 millis. delete from BATCH_STEP_EXECUTION_SEQ where ID < 209
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, stmt-20191} closed
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20033} Parameters : [209, 0, stepTwo, 126, 2020-02-27 12:48:36.095, null, STARTING, 0, 0, 0, 0, EXECUTING, , 0, 0, 0, 0, 2020-02-27 12:48:36.096]
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20033} Types : [BIGINT, INTEGER, VARCHAR, BIGINT, TIMESTAMP, TIMESTAMP, VARCHAR, INTEGER, INTEGER, INTEGER, INTEGER, VARCHAR, VARCHAR, INTEGER, INTEGER, INTEGER, INTEGER, TIMESTAMP]
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20033} update executed. effort 1. 1.3906 millis. INSERT into BATCH_STEP_EXECUTION(STEP_EXECUTION_ID, VERSION, STEP_NAME, JOB_EXECUTION_ID, START_TIME, END_TIME, STATUS, COMMIT_COUNT, READ_COUNT, FILTER_COUNT, WRITE_COUNT, EXIT_CODE, EXIT_MESSAGE, READ_SKIP_COUNT, WRITE_SKIP_COUNT, PROCESS_SKIP_COUNT, ROLLBACK_COUNT, LAST_UPDATED) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20033} clearParameters. 
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20035} Parameters : [{}, null, 209]
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20035} Types : [VARCHAR, CLOB, BIGINT]
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20035} update executed. effort 1. 1.095599 millis. INSERT INTO BATCH_STEP_EXECUTION_CONTEXT (SHORT_CONTEXT, SERIALIZED_CONTEXT, STEP_EXECUTION_ID) VALUES(?, ?, ?)
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20035} clearParameters. 
+DEBUG MyScheduler_Worker-3 druid.sql.Connection - {conn-10005} commited
+DEBUG MyScheduler_Worker-3 druid.sql.Connection - {conn-10005} setAutoCommit true
+DEBUG MyScheduler_Worker-3 druid.sql.Connection - {conn-10005} pool-recycle
+DEBUG MyScheduler_Worker-3 druid.sql.Connection - {conn-10005} pool-connect
+DEBUG MyScheduler_Worker-3 druid.sql.Connection - {conn-10005} setAutoCommit false
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20038} Parameters : [2020-02-27 12:48:36.106, null, STARTED, 0, 0, 0, 0, EXECUTING, , 1, 0, 0, 0, 0, 2020-02-27 12:48:36.107, 209, 0]
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20038} Types : [TIMESTAMP, TIMESTAMP, VARCHAR, INTEGER, INTEGER, INTEGER, INTEGER, VARCHAR, VARCHAR, INTEGER, INTEGER, INTEGER, INTEGER, INTEGER, TIMESTAMP, BIGINT, INTEGER]
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20038} update executed. effort 1. 1.325399 millis. UPDATE BATCH_STEP_EXECUTION set START_TIME = ?, END_TIME = ?, STATUS = ?, COMMIT_COUNT = ?, READ_COUNT = ?, FILTER_COUNT = ?, WRITE_COUNT = ?, EXIT_CODE = ?, EXIT_MESSAGE = ?, VERSION = ?, READ_SKIP_COUNT = ?, PROCESS_SKIP_COUNT = ?, WRITE_SKIP_COUNT = ?, ROLLBACK_COUNT = ?, LAST_UPDATED = ? where STEP_EXECUTION_ID = ? and VERSION = ?
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20038} clearParameters. 
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20023} Parameters : [126]
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20023} Types : [BIGINT]
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20023, rs-51115} query executed. 1.0094 millis. SELECT VERSION FROM BATCH_JOB_EXECUTION WHERE JOB_EXECUTION_ID=?
+DEBUG MyScheduler_Worker-3 druid.sql.ResultSet - {conn-10005, pstmt-20023, rs-51115} open
+DEBUG MyScheduler_Worker-3 druid.sql.ResultSet - {conn-10005, pstmt-20023, rs-51115} Header: [VERSION]
+DEBUG MyScheduler_Worker-3 druid.sql.ResultSet - {conn-10005, pstmt-20023, rs-51115} Result: [1]
+DEBUG MyScheduler_Worker-3 druid.sql.ResultSet - {conn-10005, pstmt-20023, rs-51115} closed
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20023} clearParameters. 
+DEBUG MyScheduler_Worker-3 druid.sql.Connection - {conn-10005} commited
+DEBUG MyScheduler_Worker-3 druid.sql.Connection - {conn-10005} setAutoCommit true
+DEBUG MyScheduler_Worker-3 druid.sql.Connection - {conn-10005} pool-recycle
+DEBUG MyScheduler_Worker-3 druid.sql.Connection - {conn-10005} pool-connect
+DEBUG MyScheduler_Worker-3 druid.sql.Connection - {conn-10005} setAutoCommit false
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20040} Parameters : [{"batch.taskletType":"com.ks.qianjiang.tasks.MyTaskTwo","batch.stepType":"org.springframework.batch.core.step.tasklet.TaskletStep"}, null, 209]
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20040} Types : [VARCHAR, CLOB, BIGINT]
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20040} update executed. effort 1. 1.2522 millis. UPDATE BATCH_STEP_EXECUTION_CONTEXT SET SHORT_CONTEXT = ?, SERIALIZED_CONTEXT = ? WHERE STEP_EXECUTION_ID = ?
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20040} clearParameters. 
+DEBUG MyScheduler_Worker-3 druid.sql.Connection - {conn-10005} commited
+DEBUG MyScheduler_Worker-3 druid.sql.Connection - {conn-10005} setAutoCommit true
+DEBUG MyScheduler_Worker-3 druid.sql.Connection - {conn-10005} pool-recycle
+DEBUG MyScheduler_Worker-3 druid.sql.Connection - {conn-10005} pool-connect
+DEBUG MyScheduler_Worker-3 druid.sql.Connection - {conn-10005} setAutoCommit false
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20040} Parameters : [{"batch.taskletType":"com.ks.qianjiang.tasks.MyTaskTwo","batch.stepType":"org.springframework.batch.core.step.tasklet.TaskletStep"}, null, 209]
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20040} Types : [VARCHAR, CLOB, BIGINT]
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20040} update executed. effort 1. 1.2181 millis. UPDATE BATCH_STEP_EXECUTION_CONTEXT SET SHORT_CONTEXT = ?, SERIALIZED_CONTEXT = ? WHERE STEP_EXECUTION_ID = ?
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20040} clearParameters. 
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20038} Parameters : [2020-02-27 12:48:36.106, null, STARTED, 1, 0, 0, 0, EXECUTING, , 2, 0, 0, 0, 0, 2020-02-27 12:48:36.119, 209, 1]
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20038} Types : [TIMESTAMP, TIMESTAMP, VARCHAR, INTEGER, INTEGER, INTEGER, INTEGER, VARCHAR, VARCHAR, INTEGER, INTEGER, INTEGER, INTEGER, INTEGER, TIMESTAMP, BIGINT, INTEGER]
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20038} update executed. effort 1. 1.2051 millis. UPDATE BATCH_STEP_EXECUTION set START_TIME = ?, END_TIME = ?, STATUS = ?, COMMIT_COUNT = ?, READ_COUNT = ?, FILTER_COUNT = ?, WRITE_COUNT = ?, EXIT_CODE = ?, EXIT_MESSAGE = ?, VERSION = ?, READ_SKIP_COUNT = ?, PROCESS_SKIP_COUNT = ?, WRITE_SKIP_COUNT = ?, ROLLBACK_COUNT = ?, LAST_UPDATED = ? where STEP_EXECUTION_ID = ? and VERSION = ?
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20038} clearParameters. 
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20023} Parameters : [126]
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20023} Types : [BIGINT]
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20023, rs-51116} query executed. 1.149999 millis. SELECT VERSION FROM BATCH_JOB_EXECUTION WHERE JOB_EXECUTION_ID=?
+DEBUG MyScheduler_Worker-3 druid.sql.ResultSet - {conn-10005, pstmt-20023, rs-51116} open
+DEBUG MyScheduler_Worker-3 druid.sql.ResultSet - {conn-10005, pstmt-20023, rs-51116} Header: [VERSION]
+DEBUG MyScheduler_Worker-3 druid.sql.ResultSet - {conn-10005, pstmt-20023, rs-51116} Result: [1]
+DEBUG MyScheduler_Worker-3 druid.sql.ResultSet - {conn-10005, pstmt-20023, rs-51116} closed
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20023} clearParameters. 
+DEBUG MyScheduler_Worker-3 druid.sql.Connection - {conn-10005} commited
+DEBUG MyScheduler_Worker-3 druid.sql.Connection - {conn-10005} setAutoCommit true
+DEBUG MyScheduler_Worker-3 druid.sql.Connection - {conn-10005} pool-recycle
+DEBUG MyScheduler_Worker-3 druid.sql.Connection - {conn-10005} pool-connect
+DEBUG MyScheduler_Worker-3 druid.sql.Connection - {conn-10005} setAutoCommit false
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20040} Parameters : [{"batch.taskletType":"com.ks.qianjiang.tasks.MyTaskTwo","batch.stepType":"org.springframework.batch.core.step.tasklet.TaskletStep"}, null, 209]
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20040} Types : [VARCHAR, CLOB, BIGINT]
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20040} update executed. effort 1. 1.0701 millis. UPDATE BATCH_STEP_EXECUTION_CONTEXT SET SHORT_CONTEXT = ?, SERIALIZED_CONTEXT = ? WHERE STEP_EXECUTION_ID = ?
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20040} clearParameters. 
+DEBUG MyScheduler_Worker-3 druid.sql.Connection - {conn-10005} commited
+DEBUG MyScheduler_Worker-3 druid.sql.Connection - {conn-10005} setAutoCommit true
+DEBUG MyScheduler_Worker-3 druid.sql.Connection - {conn-10005} pool-recycle
+DEBUG MyScheduler_Worker-3 druid.sql.Connection - {conn-10005} pool-connect
+DEBUG MyScheduler_Worker-3 druid.sql.Connection - {conn-10005} setAutoCommit false
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20038} Parameters : [2020-02-27 12:48:36.106, 2020-02-27 12:48:36.128, COMPLETED, 1, 0, 0, 0, COMPLETED, , 3, 0, 0, 0, 0, 2020-02-27 12:48:36.129, 209, 2]
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20038} Types : [TIMESTAMP, TIMESTAMP, VARCHAR, INTEGER, INTEGER, INTEGER, INTEGER, VARCHAR, VARCHAR, INTEGER, INTEGER, INTEGER, INTEGER, INTEGER, TIMESTAMP, BIGINT, INTEGER]
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20038} update executed. effort 1. 1.0614 millis. UPDATE BATCH_STEP_EXECUTION set START_TIME = ?, END_TIME = ?, STATUS = ?, COMMIT_COUNT = ?, READ_COUNT = ?, FILTER_COUNT = ?, WRITE_COUNT = ?, EXIT_CODE = ?, EXIT_MESSAGE = ?, VERSION = ?, READ_SKIP_COUNT = ?, PROCESS_SKIP_COUNT = ?, WRITE_SKIP_COUNT = ?, ROLLBACK_COUNT = ?, LAST_UPDATED = ? where STEP_EXECUTION_ID = ? and VERSION = ?
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20038} clearParameters. 
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20023} Parameters : [126]
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20023} Types : [BIGINT]
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20023, rs-51117} query executed. 0.8829 millis. SELECT VERSION FROM BATCH_JOB_EXECUTION WHERE JOB_EXECUTION_ID=?
+DEBUG MyScheduler_Worker-3 druid.sql.ResultSet - {conn-10005, pstmt-20023, rs-51117} open
+DEBUG MyScheduler_Worker-3 druid.sql.ResultSet - {conn-10005, pstmt-20023, rs-51117} Header: [VERSION]
+DEBUG MyScheduler_Worker-3 druid.sql.ResultSet - {conn-10005, pstmt-20023, rs-51117} Result: [1]
+DEBUG MyScheduler_Worker-3 druid.sql.ResultSet - {conn-10005, pstmt-20023, rs-51117} closed
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20023} clearParameters. 
+DEBUG MyScheduler_Worker-3 druid.sql.Connection - {conn-10005} commited
+DEBUG MyScheduler_Worker-3 druid.sql.Connection - {conn-10005} setAutoCommit true
+DEBUG MyScheduler_Worker-3 druid.sql.Connection - {conn-10005} pool-recycle
+DEBUG MyScheduler_Worker-3 druid.sql.Connection - {conn-10005} pool-connect
+DEBUG MyScheduler_Worker-3 druid.sql.Connection - {conn-10005} setAutoCommit false
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20043} Parameters : [{}, null, 126]
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20043} Types : [VARCHAR, CLOB, BIGINT]
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20043} update executed. effort 1. 1.0304 millis. UPDATE BATCH_JOB_EXECUTION_CONTEXT SET SHORT_CONTEXT = ?, SERIALIZED_CONTEXT = ? WHERE JOB_EXECUTION_ID = ?
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20043} clearParameters. 
+DEBUG MyScheduler_Worker-3 druid.sql.Connection - {conn-10005} commited
+DEBUG MyScheduler_Worker-3 druid.sql.Connection - {conn-10005} setAutoCommit true
+DEBUG MyScheduler_Worker-3 druid.sql.Connection - {conn-10005} pool-recycle
+DEBUG MyScheduler_Worker-3 druid.sql.Connection - {conn-10005} pool-connect
+DEBUG MyScheduler_Worker-3 druid.sql.Connection - {conn-10005} setAutoCommit false
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20023} Parameters : [126]
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20023} Types : [BIGINT]
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20023, rs-51118} query executed. 1.053399 millis. SELECT VERSION FROM BATCH_JOB_EXECUTION WHERE JOB_EXECUTION_ID=?
+DEBUG MyScheduler_Worker-3 druid.sql.ResultSet - {conn-10005, pstmt-20023, rs-51118} open
+DEBUG MyScheduler_Worker-3 druid.sql.ResultSet - {conn-10005, pstmt-20023, rs-51118} Header: [VERSION]
+DEBUG MyScheduler_Worker-3 druid.sql.ResultSet - {conn-10005, pstmt-20023, rs-51118} Result: [1]
+DEBUG MyScheduler_Worker-3 druid.sql.ResultSet - {conn-10005, pstmt-20023, rs-51118} closed
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20023} clearParameters. 
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20024} Parameters : [126]
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20024} Types : [BIGINT]
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20024, rs-51119} query executed. 0.936301 millis. SELECT COUNT(*) FROM BATCH_JOB_EXECUTION WHERE JOB_EXECUTION_ID = ?
+DEBUG MyScheduler_Worker-3 druid.sql.ResultSet - {conn-10005, pstmt-20024, rs-51119} open
+DEBUG MyScheduler_Worker-3 druid.sql.ResultSet - {conn-10005, pstmt-20024, rs-51119} Header: []
+DEBUG MyScheduler_Worker-3 druid.sql.ResultSet - {conn-10005, pstmt-20024, rs-51119} Result: [1]
+DEBUG MyScheduler_Worker-3 druid.sql.ResultSet - {conn-10005, pstmt-20024, rs-51119} closed
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20024} clearParameters. 
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20026} Parameters : [2020-02-27 12:48:35.977, 2020-02-27 12:48:36.138, COMPLETED, COMPLETED, , 2, 2020-02-27 12:48:35.962, 2020-02-27 12:48:36.139, 126, 1]
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20026} Types : [TIMESTAMP, TIMESTAMP, VARCHAR, VARCHAR, VARCHAR, INTEGER, TIMESTAMP, TIMESTAMP, BIGINT, INTEGER]
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20026} update executed. effort 1. 1.0123 millis. UPDATE BATCH_JOB_EXECUTION set START_TIME = ?, END_TIME = ?,  STATUS = ?, EXIT_CODE = ?, EXIT_MESSAGE = ?, VERSION = ?, CREATE_TIME = ?, LAST_UPDATED = ? where JOB_EXECUTION_ID = ? and VERSION = ?
+DEBUG MyScheduler_Worker-3 druid.sql.Statement - {conn-10005, pstmt-20026} clearParameters. 
+DEBUG MyScheduler_Worker-3 druid.sql.Connection - {conn-10005} commited
+DEBUG MyScheduler_Worker-3 druid.sql.Connection - {conn-10005} setAutoCommit true
+DEBUG MyScheduler_Worker-3 druid.sql.Connection - {conn-10005} pool-recycle
