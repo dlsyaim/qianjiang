@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ks.qianjiang.mapper.GoldcardRealDAO">
+  <resultMap id="BaseResultMap" type="com.ks.qianjiang.model.GoldcardReal">
+    <id column="ID" jdbcType="INTEGER" property="id" />
+    <result column="sumMoney" jdbcType="VARCHAR" property="summoney" />
+    <result column="readNum" jdbcType="VARCHAR" property="readnum" />
+    <result column="userArchivesNum" jdbcType="VARCHAR" property="userarchivesnum" />
+    <result column="valveState" jdbcType="VARCHAR" property="valvestate" />
+    <result column="readDate" jdbcType="VARCHAR" property="readdate" />
+    <result column="meterBalance" jdbcType="VARCHAR" property="meterbalance" />
+    <result column="gasMeterNo" jdbcType="VARCHAR" property="gasmeterno" />
+    <result column="deviceId" jdbcType="VARCHAR" property="deviceid" />
+    <result column="sumGas" jdbcType="VARCHAR" property="sumgas" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, sumMoney, readNum, userArchivesNum, valveState, readDate, meterBalance, gasMeterNo, 
+    deviceId, sumGas
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from KS_DataBase3.0_QJ..GoldCard_Real
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from KS_DataBase3.0_QJ..GoldCard_Real
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.ks.qianjiang.model.GoldcardReal">
+    insert into KS_DataBase3.0_QJ..GoldCard_Real (ID, sumMoney, readNum, 
+      userArchivesNum, valveState, readDate, 
+      meterBalance, gasMeterNo, deviceId, 
+      sumGas)
+    values (#{id,jdbcType=INTEGER}, #{summoney,jdbcType=VARCHAR}, #{readnum,jdbcType=VARCHAR}, 
+      #{userarchivesnum,jdbcType=VARCHAR}, #{valvestate,jdbcType=VARCHAR}, #{readdate,jdbcType=VARCHAR}, 
+      #{meterbalance,jdbcType=VARCHAR}, #{gasmeterno,jdbcType=VARCHAR}, #{deviceid,jdbcType=VARCHAR}, 
+      #{sumgas,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.ks.qianjiang.model.GoldcardReal">
+    insert into KS_DataBase3.0_QJ..GoldCard_Real
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="summoney != null">
+        sumMoney,
+      </if>
+      <if test="readnum != null">
+        readNum,
+      </if>
+      <if test="userarchivesnum != null">
+        userArchivesNum,
+      </if>
+      <if test="valvestate != null">
+        valveState,
+      </if>
+      <if test="readdate != null">
+        readDate,
+      </if>
+      <if test="meterbalance != null">
+        meterBalance,
+      </if>
+      <if test="gasmeterno != null">
+        gasMeterNo,
+      </if>
+      <if test="deviceid != null">
+        deviceId,
+      </if>
+      <if test="sumgas != null">
+        sumGas,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="summoney != null">
+        #{summoney,jdbcType=VARCHAR},
+      </if>
+      <if test="readnum != null">
+        #{readnum,jdbcType=VARCHAR},
+      </if>
+      <if test="userarchivesnum != null">
+        #{userarchivesnum,jdbcType=VARCHAR},
+      </if>
+      <if test="valvestate != null">
+        #{valvestate,jdbcType=VARCHAR},
+      </if>
+      <if test="readdate != null">
+        #{readdate,jdbcType=VARCHAR},
+      </if>
+      <if test="meterbalance != null">
+        #{meterbalance,jdbcType=VARCHAR},
+      </if>
+      <if test="gasmeterno != null">
+        #{gasmeterno,jdbcType=VARCHAR},
+      </if>
+      <if test="deviceid != null">
+        #{deviceid,jdbcType=VARCHAR},
+      </if>
+      <if test="sumgas != null">
+        #{sumgas,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ks.qianjiang.model.GoldcardReal">
+    update KS_DataBase3.0_QJ..GoldCard_Real
+    <set>
+      <if test="summoney != null">
+        sumMoney = #{summoney,jdbcType=VARCHAR},
+      </if>
+      <if test="readnum != null">
+        readNum = #{readnum,jdbcType=VARCHAR},
+      </if>
+      <if test="userarchivesnum != null">
+        userArchivesNum = #{userarchivesnum,jdbcType=VARCHAR},
+      </if>
+      <if test="valvestate != null">
+        valveState = #{valvestate,jdbcType=VARCHAR},
+      </if>
+      <if test="readdate != null">
+        readDate = #{readdate,jdbcType=VARCHAR},
+      </if>
+      <if test="meterbalance != null">
+        meterBalance = #{meterbalance,jdbcType=VARCHAR},
+      </if>
+      <if test="gasmeterno != null">
+        gasMeterNo = #{gasmeterno,jdbcType=VARCHAR},
+      </if>
+      <if test="deviceid != null">
+        deviceId = #{deviceid,jdbcType=VARCHAR},
+      </if>
+      <if test="sumgas != null">
+        sumGas = #{sumgas,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ks.qianjiang.model.GoldcardReal">
+    update KS_DataBase3.0_QJ..GoldCard_Real
+    set sumMoney = #{summoney,jdbcType=VARCHAR},
+      readNum = #{readnum,jdbcType=VARCHAR},
+      userArchivesNum = #{userarchivesnum,jdbcType=VARCHAR},
+      valveState = #{valvestate,jdbcType=VARCHAR},
+      readDate = #{readdate,jdbcType=VARCHAR},
+      meterBalance = #{meterbalance,jdbcType=VARCHAR},
+      gasMeterNo = #{gasmeterno,jdbcType=VARCHAR},
+      deviceId = #{deviceid,jdbcType=VARCHAR},
+      sumGas = #{sumgas,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <insert id="insertGoldcardRealList">
+    INSERT INTO [GoldCard_Real]
+    ([sumMoney]
+    ,[readNum]
+    ,[userArchivesNum]
+    ,[valveState]
+    ,[readDate]
+    ,[meterBalance]
+    ,[gasMeterNo]
+    ,[deviceId]
+    ,[sumGas])
+    VALUES
+<!--    <foreach collection="list" item="element" index="index" open="(" separator="),("  close=")">-->
+    <foreach collection="list" item="element" index="index" open="(" separator="),("  close=")">
+      #{element.summoney},
+      #{element.readnum},
+      #{element.userarchivesnum},
+      #{element.valvestate},
+      #{element.readdate},
+      #{element.meterbalance},
+      #{element.gasmeterno},
+      #{element.deviceid},
+      #{element.sumgas}
+    </foreach>
+  </insert>
+
+  <insert id="insertUnique">
+  <foreach collection="list" item="item" index="index" open="(" separator="),("  close=")">
+    IF NOT EXISTS(SELECT 1 FROM GoldCard_Real  WHERE gasMeterNo = #{item.gasmeterno} and 1=1)
+    BEGIN
+    insert into GoldCard_Real (sumMoney, readNum,
+    userArchivesNum, valveState, readDate,
+    meterBalance, gasMeterNo, deviceId,
+    sumGas)values ( #{item.summoney}, #{item.readnum},
+    #{item.userarchivesnum}, #{item.valvestate}, #{item.readdate},
+    #{item.meterbalance}, #{item.gasmeterno}, #{item.deviceid},
+    #{item.sumgas})
+    END
+    ELSE
+    BEGIN
+    UPDATE GoldCard_Real set sumMoney = #{item.summoney},
+    readNum = #{item.readnum},
+    userArchivesNum = #{item.userarchivesnum},
+    valveState = #{item.valvestate},
+    readDate = #{item.readdate},
+    meterBalance = #{item.meterbalance},
+    gasMeterNo = #{item.gasmeterno},
+    deviceId = #{item.deviceid},
+    sumGas = #{item.sumgas} where gasmeterno = #{item.gasmeterno}
+
+    END
+  </foreach>
+</insert>
+<!--  <insert id="insertUnique2" parameterType="com.ks.qianjiang.model.GoldcardReal">-->
+<!--      IF NOT EXISTS(SELECT 1 FROM GoldCard_Real  where gasMeterNo = 1 and 1=1 )-->
+<!--        insert into GoldCard_Real (sumMoney, readNum, userArchivesNum, valveState, readDate, meterBalance, gasMeterNo, deviceId, sumGas)values ( 1 , 1, 1, 1, 1, 1, 1, 1, 1);-->
+<!--      ELSE-->
+<!--        insert into GoldCard_Real (sumMoney, readNum, userArchivesNum, valveState, readDate, meterBalance, gasMeterNo, deviceId, sumGas)values ( 1 , 1, 1, 1, 1, 1, 1, 1, 1);-->
+<!--  </insert>-->
+
+  <insert id="insertUnique2" parameterType="com.ks.qianjiang.model.GoldcardReal">
+      IF NOT EXISTS(SELECT 1 FROM GoldCard_Real  WHERE gasMeterNo = #{gasmeterno} )
+      BEGIN
+        insert into GoldCard_Real (sumMoney, readNum,
+        userArchivesNum, valveState, readDate,
+        meterBalance, gasMeterNo, deviceId,
+        sumGas)values ( #{summoney}, #{readnum},
+        #{userarchivesnum}, #{valvestate}, #{readdate},
+        #{meterbalance}, #{gasmeterno}, #{deviceid},
+        #{sumgas});
+      END
+      ELSE
+      BEGIN
+        UPDATE GoldCard_Real set sumMoney = #{summoney},
+        readNum = #{readnum},
+        userArchivesNum = #{userarchivesnum},
+        valveState = #{valvestate},
+        readDate = #{readdate},
+        meterBalance = #{meterbalance},
+        gasMeterNo = #{gasmeterno},
+        deviceId = #{deviceid},
+        sumGas = #{sumgas} where gasmeterno = #{gasmeterno};
+
+      END
+  </insert>
+</mapper>

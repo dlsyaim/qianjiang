@@ -23,7 +23,7 @@ import org.springframework.scheduling.quartz.SchedulerFactoryBean;
 
 import com.ks.qianjiang.jobs.CustomQuartzJob;
 
-@Configuration
+//@Configuration
 public class QuartzConfig
 {
     @Autowired
@@ -75,7 +75,7 @@ public class QuartzConfig
     {
         SimpleScheduleBuilder scheduleBuilder = SimpleScheduleBuilder
                 .simpleSchedule()
-                .withIntervalInSeconds(10)
+                .withIntervalInSeconds(60)
                 .repeatForever();
 
         return TriggerBuilder

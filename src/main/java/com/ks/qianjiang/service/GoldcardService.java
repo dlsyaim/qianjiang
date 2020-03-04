@@ -1,9 +1,10 @@
-package com.ks.qianjiang.tasks;
-
+package com.ks.qianjiang.service;
+;
 import com.google.gson.Gson;
 import com.ks.qianjiang.Util.DESUtil;
 import com.ks.qianjiang.config.GoldcardConfig;
-import com.ks.qianjiang.service.GoldcardService;
+import com.ks.qianjiang.mapper.GoldcardRealDAO;
+import com.ks.qianjiang.model.GoldcardReal;
 import org.apache.commons.httpclient.HttpClient;
 import org.apache.commons.httpclient.methods.PostMethod;
 import org.apache.commons.httpclient.methods.RequestEntity;
@@ -13,51 +14,44 @@ import org.codehaus.jettison.json.JSONException;
 import org.codehaus.jettison.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.batch.core.StepContribution;
-import org.springframework.batch.core.scope.context.ChunkContext;
-import org.springframework.batch.core.step.tasklet.Tasklet;
 import org.springframework.batch.repeat.RepeatStatus;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import com.ks.qianjiang.mapper.KsManagerDAO;
+import com.ks.qianjiang.model.KsManager;
+import org.apache.ibatis.annotations.Param;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Scheduled;
+import org.springframework.stereotype.Service;
 import org.yaml.snakeyaml.Yaml;
 
+import java.io.IOException;
 import java.io.InputStream;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
-public class MyTaskOne implements Tasklet {
-//   @Autowired
-//    private GoldcardConfig goldcardConfig;
-//    String url2 = goldcardConfig.toString();
-        GoldcardService goldcardService;
-    public MyTaskOne(GoldcardService goldcardService){
-        this.goldcardService=goldcardService;
-    }
+@Service
+public class GoldcardService {
+    @Autowired
+    GoldcardRealDAO goldcardRealDAO;
 
-    Logger log = LoggerFactory.getLogger(getClass());
+    Logger logger = LoggerFactory.getLogger(getClass());
 
-    public RepeatStatus execute(StepContribution contribution, ChunkContext chunkContext) throws Exception {
-        System.out.println("MyTaskOne start..");
-        //System.out.println(url2);
-        log.trace("MyTaskOne接口");
-        // ... your code
-//        appCode 00000086  appSecret F1F26046CDCA7D9572B0367F0FB043FD
+    //获取表所有数据
+    @Scheduled(fixedRateString ="${console.fetchMetrics}", initialDelay=1000)
+    public void getMeterRealData() throws IOException {
+        logger.info(new Throwable()
+                .getStackTrace()[0]
+                .getMethodName());
         Yaml yaml = new Yaml();
-//        InputStream inputStream = this.getClass()
-//                .getClassLoader()
-//                .getResourceAsStream("application.yml");
-//        Map<String, Object> obj = yaml.load(inputStream);
         InputStream inputStream = this.getClass()
                 .getClassLoader()
                 .getResourceAsStream("goldcard.yml");
-       GoldcardConfig goldcardConfig= yaml.loadAs(inputStream,GoldcardConfig.class);
+        GoldcardConfig goldcardConfig= yaml.loadAs(inputStream,GoldcardConfig.class);
         String url = goldcardConfig.getUrl();
 
-
-       // String url =  goldcardConfig.getUrl();
-        //System.out.println(url);
         String appCode = goldcardConfig.getAppCode();
         String appSecret = goldcardConfig.getAppSecret();
         String time = new SimpleDateFormat("yyyyMMddHHmmss").format(new Date());
@@ -66,9 +60,9 @@ public class MyTaskOne implements Tasklet {
         PostMethod post = new PostMethod(url);
         //HTTP基本认证
         post.setRequestHeader("Content-Type","application/json;charset=utf-8");
-        post.setRequestHeader("AccessToken",DESUtil.encodeMd5(appCode + appSecret + time));
+        post.setRequestHeader("AccessToken", DESUtil.encodeMd5(appCode + appSecret + time));
         post.setRequestHeader("Authorization",DESUtil.encodeString(appCode + ":" + time));
-        log.info("AccessToken："+DESUtil.encodeMd5(appCode + appSecret + time)+"-----------"+
+        logger.info("AccessToken："+DESUtil.encodeMd5(appCode + appSecret + time)+"-----------"+
                 "Authorization:"+ DESUtil.encodeString(appCode + ":" + time));
 //        Gson gson = new Gson();
 //        String jsondata = gson.toJson({ "companyCode":"10001058", "meterNo":"",
@@ -89,9 +83,9 @@ public class MyTaskOne implements Tasklet {
         RequestEntity requestEntity= new StringRequestEntity(jsondata, "application/json", "UTF-8");
         post.setRequestEntity(requestEntity);
         try {
-           httpclient.executeMethod(post);
+            httpclient.executeMethod(post);
         } catch (Exception e) {
-            log.info("--------请求cis连接超时-------");
+            logger.info("--------请求cis连接超时-------");
         }
 
         String response = new String(post.getResponseBody(),"UTF-8");
@@ -99,7 +93,6 @@ public class MyTaskOne implements Tasklet {
         System.out.println("MyTaskOne done..");
 
         try {
-
 //                "echoCode": "0000",
 //                    "echoMsg": {
 //                "readingData": {
@@ -111,13 +104,41 @@ public class MyTaskOne implements Tasklet {
             JSONObject readingDataObject = (JSONObject) echoMsgObject.get("readingData");
             //JSONObject dataObject = (JSONObject) readingDataObject.get("data");
             JSONArray list = (JSONArray) readingDataObject.get("data");
-            goldcardService.insertGoldcardReal(list);
+            this.insertGoldcardReal(list);
 
-            log.info("Error");
+            logger.info("Error");
         }catch (JSONException err){
-            log.info("Error", err.toString());
+            logger.info("Error", err.toString());
         }
 
-        return RepeatStatus.FINISHED;
     }
+
+    //插入数据
+    public int insertGoldcardReal(JSONArray list){ ;
+        JSONObject goldcardRealJson;
+        ArrayList<GoldcardReal> goldcardReals = new ArrayList<GoldcardReal>(list.length());
+        // Process each result in json array, decode and convert to business object
+        for (int i=0; i < list.length(); i++) {
+            try {
+                goldcardRealJson = list.getJSONObject(i);
+            } catch (Exception e) {
+                e.printStackTrace();
+                continue;
+            }
+
+            GoldcardReal goldcardRealobj = GoldcardReal.fromJson(goldcardRealJson);
+            if (goldcardRealobj != null) {
+                goldcardReals.add(goldcardRealobj);
+               // goldcardRealDAO.insertUnique2(goldcardRealobj);
+               // goldcardRealDAO.insertUnique(goldcardRealobj);
+            }
+        }
+       //goldcardRealDAO.insertUnique(goldcardReals);
+      goldcardRealDAO.insertGoldcardRealList(goldcardReals);
+        //goldcardRealDAO.insertUnique(g)
+       // List<GoldcardReal> mythings = (List<GoldcardReal>) (Object) list;
+        return 1;
+
+    }
+
 }
