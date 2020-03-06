@@ -1,10 +1,9 @@
-package com.ks.qianjiang.service;
-;
+package com.ks.qianjiang.bll;
+
 import com.google.gson.Gson;
 import com.ks.qianjiang.Util.DESUtil;
 import com.ks.qianjiang.config.GoldcardConfig;
-import com.ks.qianjiang.mapper.GoldcardRealDAO;
-import com.ks.qianjiang.model.GoldcardReal;
+import com.ks.qianjiang.service.GoldcardService;
 import org.apache.commons.httpclient.HttpClient;
 import org.apache.commons.httpclient.methods.PostMethod;
 import org.apache.commons.httpclient.methods.RequestEntity;
@@ -14,34 +13,29 @@ import org.codehaus.jettison.json.JSONException;
 import org.codehaus.jettison.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.batch.repeat.RepeatStatus;
 import org.springframework.beans.factory.annotation.Autowired;
-import com.ks.qianjiang.mapper.KsManagerDAO;
-import com.ks.qianjiang.model.KsManager;
-import org.apache.ibatis.annotations.Param;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.scheduling.annotation.Scheduled;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 import org.yaml.snakeyaml.Yaml;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.text.SimpleDateFormat;
-import java.util.*;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
-import static com.alibaba.druid.sql.ast.SQLPartitionValue.Operator.List;
-
-@Service
-public class GoldcardService {
+@Component
+public class GoldcardRealBLL {
     @Autowired
-    public   GoldcardRealDAO goldcardRealDAO;
-
+    GoldcardService goldcardService;
     Logger logger = LoggerFactory.getLogger(getClass());
 
-
-    //2.4.16物联网明细查询
-   // @Scheduled(fixedRateString ="${goldcard.getMeterRealDataTime}", initialDelay=3000)
-    public void getMeterIotInfData() throws IOException {
+    //获取设备实时数据
+    @Async
+    @Scheduled(fixedRateString ="${goldcard.getMeterRealDataTime}", initialDelay=1000)
+    public void getMeterRealData() throws IOException {
         logger.info(new Throwable()
                 .getStackTrace()[0]
                 .getMethodName());
@@ -50,7 +44,7 @@ public class GoldcardService {
                 .getClassLoader()
                 .getResourceAsStream("goldcard.yml");
         GoldcardConfig goldcardConfig= yaml.loadAs(inputStream,GoldcardConfig.class);
-        String url = goldcardConfig.getUrl()+"v1/collect/meter/1016";
+        String url = goldcardConfig.getUrl()+"v2/collect/meter/1013";
 
         String appCode = goldcardConfig.getAppCode();
         String appSecret = goldcardConfig.getAppSecret();
@@ -74,13 +68,7 @@ public class GoldcardService {
         map.put("companyCode", goldcardConfig.getCompanyCode());
         map.put("factorNo", goldcardConfig.getFactorNo());
         map.put("meterNo", "");
-        map.put("meterType", "");
-        map.put("customerType","");
-        map.put("readStatus", "0");
-        map.put("valveSatus","0");
-        map.put("expType", "");
-        map.put("currentPage","1");
-        map.put("pageSize","100");
+        map.put("readingDate", "");
 
         String jsondata = new Gson().toJson(map);
 
@@ -104,38 +92,10 @@ public class GoldcardService {
             JSONObject readingDataObject = (JSONObject) echoMsgObject.get("readingData");
             //JSONObject dataObject = (JSONObject) readingDataObject.get("data");
             JSONArray list = (JSONArray) readingDataObject.get("data");
-            this.insertGoldcardReal(list);
+            goldcardService.insertGoldcardReal(list);   //插入数据
         }catch (JSONException err){
             logger.info("Error", err.toString());
         }
-    }
-
-    //插入数据
-    public int insertGoldcardReal(JSONArray list){ ;
-        JSONObject goldcardRealJson;
-        ArrayList<GoldcardReal> goldcardReals = new ArrayList<GoldcardReal>(list.length());
-        // Process each result in json array, decode and convert to business object
-        for (int i=0; i < list.length(); i++) {
-            try {
-                goldcardRealJson = list.getJSONObject(i);
-            } catch (Exception e) {
-                e.printStackTrace();
-                continue;
-            }
-
-            GoldcardReal goldcardRealobj = GoldcardReal.fromJson(goldcardRealJson);
-            if (goldcardRealobj != null) {
-                //goldcardReals.add(goldcardRealobj);
-                goldcardRealDAO.insertUnique2(goldcardRealobj);
-               //goldcardRealDAO.insertAll(goldcardRealobj);
-            }
-        }
-       //goldcardRealDAO.insertUnique(goldcardReals);
-      //goldcardRealDAO.insertGoldcardRealList(goldcardReals);
-        //goldcardRealDAO.insertUnique(g)
-       // List<GoldcardReal> mythings = (List<GoldcardReal>) (Object) list;
-        return 1;
 
     }
-
 }

@@ -235,4 +235,24 @@
 
       END
   </insert>
+
+  <!-- 定义resultMap，type为HashMap -->
+<!--  <resultMap id="UserNoMap" type="java.util.HashMap">-->
+<!--    <result column="userArchivesNum" jdbcType="VARCHAR" property="userarchivesnum" />-->
+<!--    <result column="gasMeterNo" jdbcType="VARCHAR" property="gasmeterno" />-->
+<!--  </resultMap>-->
+
+  <select id="userNO_List" resultType="java.util.HashMap">
+--      SELECT userArchivesNum,gasMeterNo from [GoldCard_Real] where gasMeterNo is not null and gasMeterNo not like '' and userArchivesNum is not null and userArchivesNum not like ''
+       SELECT userArchivesNum,gasMeterNo from [GoldCard_Real] where gasMeterNo is not null and gasMeterNo not like ''
+  </select>
+  <insert id="insertAll" parameterType="com.ks.qianjiang.model.GoldcardReal">
+        insert into GoldCard_Real (sumMoney, readNum,
+        userArchivesNum, valveState, readDate,
+        meterBalance, gasMeterNo, deviceId,
+        sumGas)values ( #{summoney}, #{readnum},
+        #{userarchivesnum}, #{valvestate}, #{readdate},
+        #{meterbalance}, #{gasmeterno}, #{deviceid},
+        #{sumgas});
+  </insert>
 </mapper>

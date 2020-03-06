@@ -1,0 +1,396 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ks.qianjiang.mapper.GoldcardInfoDAO">
+  <resultMap id="BaseResultMap" type="com.ks.qianjiang.model.GoldcardInfo">
+    <id column="ID" jdbcType="INTEGER" property="ID" />
+    <result column="serialNo" jdbcType="VARCHAR" property="serialNo" />
+    <result column="meterState" jdbcType="VARCHAR" property="meterState" />
+    <result column="setUpTime" jdbcType="VARCHAR" property="setUpTime" />
+    <result column="beseNum" jdbcType="VARCHAR" property="beseNum" />
+    <result column="readingNum" jdbcType="VARCHAR" property="readingNum" />
+    <result column="userName" jdbcType="VARCHAR" property="userName" />
+    <result column="address" jdbcType="VARCHAR" property="address" />
+    <result column="userType" jdbcType="VARCHAR" property="userType" />
+    <result column="deviceId" jdbcType="VARCHAR" property="deviceId" />
+    <result column="valveState" jdbcType="VARCHAR" property="valveState" />
+    <result column="sumUseGas" jdbcType="VARCHAR" property="sumUseGas" />
+    <result column="sumUseMoney" jdbcType="VARCHAR" property="sumUseMoney" />
+    <result column="priceCode" jdbcType="VARCHAR" property="priceCode" />
+    <result column="sumRechargeAomunt" jdbcType="VARCHAR" property="sumRechargeAomunt" />
+    <result column="lastReadingTime" jdbcType="VARCHAR" property="lastReadingTime" />
+    <result column="balance" jdbcType="VARCHAR" property="balance" />
+    <result column="meterNo" jdbcType="VARCHAR" property="meterNo" />
+    <result column="price" jdbcType="VARCHAR" property="price" />
+    <result column="lastRechargeAmount" jdbcType="VARCHAR" property="lastRechargeAmount" />
+    <result column="lastRechargeDate" jdbcType="VARCHAR" property="lastRechargeDate" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, serialNo, meterState, setUpTime, beseNum, readingNum, userName, address, userType, 
+    deviceId, valveState, sumUseGas, sumUseMoney, priceCode, sumRechargeAomunt, lastReadingTime, 
+    balance, meterNo, price, lastRechargeAmount, lastRechargeDate
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from KS_DataBase3.0_QJ..GoldCard_Info
+    where ID = #{ID,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from KS_DataBase3.0_QJ..GoldCard_Info
+    where ID = #{ID,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.ks.qianjiang.model.GoldcardInfo">
+    insert into GoldCard_Info ( serialNo, meterState,
+      setUpTime, beseNum, readingNum, 
+      userName, address, userType, 
+      deviceId, valveState, sumUseGas, 
+      sumUseMoney, priceCode, sumRechargeAomunt, 
+      lastReadingTime, balance, meterNo, 
+      price, lastRechargeAmount, lastRechargeDate
+      )
+    values ( #{serialNo,jdbcType=VARCHAR}, #{meterState,jdbcType=VARCHAR},
+      #{setUpTime,jdbcType=VARCHAR}, #{beseNum,jdbcType=VARCHAR}, #{readingNum,jdbcType=VARCHAR}, 
+      #{userName,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, #{userType,jdbcType=VARCHAR}, 
+      #{deviceId,jdbcType=VARCHAR}, #{valveState,jdbcType=VARCHAR}, #{sumUseGas,jdbcType=VARCHAR}, 
+      #{sumUseMoney,jdbcType=VARCHAR}, #{priceCode,jdbcType=VARCHAR}, #{sumRechargeAomunt,jdbcType=VARCHAR}, 
+      #{lastReadingTime,jdbcType=VARCHAR}, #{balance,jdbcType=VARCHAR}, #{meterNo,jdbcType=VARCHAR}, 
+      #{price,jdbcType=VARCHAR}, #{lastRechargeAmount,jdbcType=VARCHAR}, #{lastRechargeDate,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.ks.qianjiang.model.GoldcardInfo">
+    insert into KS_DataBase3.0_QJ..GoldCard_Info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="ID != null">
+        ID,
+      </if>
+      <if test="serialNo != null">
+        serialNo,
+      </if>
+      <if test="meterState != null">
+        meterState,
+      </if>
+      <if test="setUpTime != null">
+        setUpTime,
+      </if>
+      <if test="beseNum != null">
+        beseNum,
+      </if>
+      <if test="readingNum != null">
+        readingNum,
+      </if>
+      <if test="userName != null">
+        userName,
+      </if>
+      <if test="address != null">
+        address,
+      </if>
+      <if test="userType != null">
+        userType,
+      </if>
+      <if test="deviceId != null">
+        deviceId,
+      </if>
+      <if test="valveState != null">
+        valveState,
+      </if>
+      <if test="sumUseGas != null">
+        sumUseGas,
+      </if>
+      <if test="sumUseMoney != null">
+        sumUseMoney,
+      </if>
+      <if test="priceCode != null">
+        priceCode,
+      </if>
+      <if test="sumRechargeAomunt != null">
+        sumRechargeAomunt,
+      </if>
+      <if test="lastReadingTime != null">
+        lastReadingTime,
+      </if>
+      <if test="balance != null">
+        balance,
+      </if>
+      <if test="meterNo != null">
+        meterNo,
+      </if>
+      <if test="price != null">
+        price,
+      </if>
+      <if test="lastRechargeAmount != null">
+        lastRechargeAmount,
+      </if>
+      <if test="lastRechargeDate != null">
+        lastRechargeDate,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="ID != null">
+        #{ID,jdbcType=INTEGER},
+      </if>
+      <if test="serialNo != null">
+        #{serialNo,jdbcType=VARCHAR},
+      </if>
+      <if test="meterState != null">
+        #{meterState,jdbcType=VARCHAR},
+      </if>
+      <if test="setUpTime != null">
+        #{setUpTime,jdbcType=VARCHAR},
+      </if>
+      <if test="beseNum != null">
+        #{beseNum,jdbcType=VARCHAR},
+      </if>
+      <if test="readingNum != null">
+        #{readingNum,jdbcType=VARCHAR},
+      </if>
+      <if test="userName != null">
+        #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="userType != null">
+        #{userType,jdbcType=VARCHAR},
+      </if>
+      <if test="deviceId != null">
+        #{deviceId,jdbcType=VARCHAR},
+      </if>
+      <if test="valveState != null">
+        #{valveState,jdbcType=VARCHAR},
+      </if>
+      <if test="sumUseGas != null">
+        #{sumUseGas,jdbcType=VARCHAR},
+      </if>
+      <if test="sumUseMoney != null">
+        #{sumUseMoney,jdbcType=VARCHAR},
+      </if>
+      <if test="priceCode != null">
+        #{priceCode,jdbcType=VARCHAR},
+      </if>
+      <if test="sumRechargeAomunt != null">
+        #{sumRechargeAomunt,jdbcType=VARCHAR},
+      </if>
+      <if test="lastReadingTime != null">
+        #{lastReadingTime,jdbcType=VARCHAR},
+      </if>
+      <if test="balance != null">
+        #{balance,jdbcType=VARCHAR},
+      </if>
+      <if test="meterNo != null">
+        #{meterNo,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null">
+        #{price,jdbcType=VARCHAR},
+      </if>
+      <if test="lastRechargeAmount != null">
+        #{lastRechargeAmount,jdbcType=VARCHAR},
+      </if>
+      <if test="lastRechargeDate != null">
+        #{lastRechargeDate,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ks.qianjiang.model.GoldcardInfo">
+    update KS_DataBase3.0_QJ..GoldCard_Info
+    <set>
+      <if test="serialNo != null">
+        serialNo = #{serialNo,jdbcType=VARCHAR},
+      </if>
+      <if test="meterState != null">
+        meterState = #{meterState,jdbcType=VARCHAR},
+      </if>
+      <if test="setUpTime != null">
+        setUpTime = #{setUpTime,jdbcType=VARCHAR},
+      </if>
+      <if test="beseNum != null">
+        beseNum = #{beseNum,jdbcType=VARCHAR},
+      </if>
+      <if test="readingNum != null">
+        readingNum = #{readingNum,jdbcType=VARCHAR},
+      </if>
+      <if test="userName != null">
+        userName = #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        address = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="userType != null">
+        userType = #{userType,jdbcType=VARCHAR},
+      </if>
+      <if test="deviceId != null">
+        deviceId = #{deviceId,jdbcType=VARCHAR},
+      </if>
+      <if test="valveState != null">
+        valveState = #{valveState,jdbcType=VARCHAR},
+      </if>
+      <if test="sumUseGas != null">
+        sumUseGas = #{sumUseGas,jdbcType=VARCHAR},
+      </if>
+      <if test="sumUseMoney != null">
+        sumUseMoney = #{sumUseMoney,jdbcType=VARCHAR},
+      </if>
+      <if test="priceCode != null">
+        priceCode = #{priceCode,jdbcType=VARCHAR},
+      </if>
+      <if test="sumRechargeAomunt != null">
+        sumRechargeAomunt = #{sumRechargeAomunt,jdbcType=VARCHAR},
+      </if>
+      <if test="lastReadingTime != null">
+        lastReadingTime = #{lastReadingTime,jdbcType=VARCHAR},
+      </if>
+      <if test="balance != null">
+        balance = #{balance,jdbcType=VARCHAR},
+      </if>
+      <if test="meterNo != null">
+        meterNo = #{meterNo,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null">
+        price = #{price,jdbcType=VARCHAR},
+      </if>
+      <if test="lastRechargeAmount != null">
+        lastRechargeAmount = #{lastRechargeAmount,jdbcType=VARCHAR},
+      </if>
+      <if test="lastRechargeDate != null">
+        lastRechargeDate = #{lastRechargeDate,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{ID,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ks.qianjiang.model.GoldcardInfo">
+    update KS_DataBase3.0_QJ..GoldCard_Info
+    set serialNo = #{serialNo,jdbcType=VARCHAR},
+      meterState = #{meterState,jdbcType=VARCHAR},
+      setUpTime = #{setUpTime,jdbcType=VARCHAR},
+      beseNum = #{beseNum,jdbcType=VARCHAR},
+      readingNum = #{readingNum,jdbcType=VARCHAR},
+      userName = #{userName,jdbcType=VARCHAR},
+      address = #{address,jdbcType=VARCHAR},
+      userType = #{userType,jdbcType=VARCHAR},
+      deviceId = #{deviceId,jdbcType=VARCHAR},
+      valveState = #{valveState,jdbcType=VARCHAR},
+      sumUseGas = #{sumUseGas,jdbcType=VARCHAR},
+      sumUseMoney = #{sumUseMoney,jdbcType=VARCHAR},
+      priceCode = #{priceCode,jdbcType=VARCHAR},
+      sumRechargeAomunt = #{sumRechargeAomunt,jdbcType=VARCHAR},
+      lastReadingTime = #{lastReadingTime,jdbcType=VARCHAR},
+      balance = #{balance,jdbcType=VARCHAR},
+      meterNo = #{meterNo,jdbcType=VARCHAR},
+      price = #{price,jdbcType=VARCHAR},
+      lastRechargeAmount = #{lastRechargeAmount,jdbcType=VARCHAR},
+      lastRechargeDate = #{lastRechargeDate,jdbcType=VARCHAR}
+    where ID = #{ID,jdbcType=INTEGER}
+  </update>
+  <insert id="insertGoldcardInfoList">
+    INSERT INTO [GoldCard_Info]
+    ([serialNo]
+    ,[meterState]
+    ,[setUpTime]
+    ,[beseNum]
+    ,[readingNum]
+    ,[userName]
+    ,[address]
+    ,[userType]
+    ,[deviceId]
+    ,[valveState]
+    ,[sumUseGas]
+    ,[sumUseMoney]
+    ,[priceCode]
+    ,[sumRechargeAomunt]
+    ,[lastReadingTime]
+    ,[balance]
+    ,[meterNo]
+    ,[price]
+    ,[lastRechargeAmount]
+    ,[lastRechargeDate])
+    VALUES
+    <!--    <foreach collection="list" item="element" index="index" open="(" separator="),("  close=")">-->
+    <foreach collection="list" item="element" index="index" open="(" separator="),("  close=")">
+      #{element.serialNo},
+      #{element.meterState},
+      #{element.setUpTime},
+      #{element.beseNum},
+      #{element.readingNum},
+      #{element.userName},
+      #{element.address},
+      #{element.userType},
+      #{element.deviceId},
+      #{element.valveState},
+      #{element.sumUseGas},
+      #{element.sumUseMoney},
+      #{element.priceCode},
+      #{element.sumRechargeAomunt},
+      #{element.lastReadingTime},
+      #{element.balance},
+      #{element.meterNo},
+      #{element.price},
+      #{element.lastRechargeAmount},
+      #{element.lastRechargeDate}
+    </foreach>
+  </insert>
+  <insert id="insertUnique" parameterType="com.ks.qianjiang.model.GoldcardInfo">
+      IF NOT EXISTS(SELECT 1 FROM GoldCard_Info  WHERE meterNo = #{meterNo} )
+      BEGIN
+        insert into GoldCard_Info (serialNo
+      ,meterState
+      ,setUpTime
+      ,beseNum
+      ,readingNum
+      ,userName
+      ,address
+      ,userType
+      ,deviceId
+      ,valveState
+      ,sumUseGas
+      ,sumUseMoney
+      ,priceCode
+      ,sumRechargeAomunt
+      ,lastReadingTime
+      ,balance
+      ,meterNo
+      ,price
+      ,lastRechargeAmount
+      ,lastRechargeDate)values ( #{serialNo},#{meterState}
+      ,#{setUpTime}
+      ,#{beseNum}
+      ,#{readingNum}
+      ,#{userName}
+      ,#{address}
+      ,#{userType}
+      ,#{deviceId}
+      ,#{valveState}
+      ,#{sumUseGas}
+      ,#{sumUseMoney}
+      ,#{priceCode}
+      ,#{sumRechargeAomunt}
+      ,#{lastReadingTime}
+      ,#{balance}
+      ,#{meterNo}
+      ,#{price}
+      ,#{lastRechargeAmount}
+      ,#{lastRechargeDate});
+      END
+      ELSE
+      BEGIN
+        UPDATE GoldCard_Info set serialNo=#{serialNo}
+      ,meterState=#{meterState}
+      ,setUpTime=#{setUpTime}
+      ,beseNum=#{beseNum}
+      ,readingNum=#{readingNum}
+      ,userName=#{userName}
+      ,address=#{address}
+      ,userType=#{userType}
+      ,deviceId=#{deviceId}
+      ,valveState=#{valveState}
+      ,sumUseGas=#{sumUseGas}
+      ,sumUseMoney=#{sumUseMoney}
+      ,priceCode=#{priceCode}
+      ,sumRechargeAomunt=#{sumRechargeAomunt}
+      ,lastReadingTime=#{lastReadingTime}
+      ,balance=#{balance}
+      ,meterNo=#{meterNo}
+      ,price=#{price}
+      ,lastRechargeAmount=#{lastRechargeAmount}
+      ,lastRechargeDate=#{lastRechargeDate}  where meterNo = #{meterNo};
+      END
+  </insert>
+</mapper>

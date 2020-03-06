@@ -1,14 +1,32 @@
 server:
-  port: 10000
+  port: 15000
 #  ssl:
 #    key-store: 1984199_shalny.com.pfx
 #    key-store-password: 40v5UlUH
 #    keystoreType: PKCS12
 goldcard:
-  url: http://120.55.14.102/api/v2/collect/meter/1013
-console:
-  fetchMetrics: 5000
+  cronInfo: 0 0 15 * * ?
+  getMeterRealDataTime: 30000
+  getMeterInfoDateTime: 86400000
 spring:
+  #SMTP TEST
+  mail:
+    host: smtp.qq.com
+    port: 465
+    username: dlsyaim@qq.com
+    password: xbbkzypjtgqrbfib
+    default-encoding: UTF-8
+    properties:
+      mail:
+        debug: true
+        smtp:
+          auth: true
+          ssl:
+            enable: true
+          socketFactory:
+            port: 465
+            class: javax.net.ssl.SSLSocketFactory
+            fallback: false
 #  batch.job.enabled: false
   #  profiles:
 #    active: dev
@@ -40,9 +58,9 @@ spring:
 #  h2:
 #    console:
 #      enabled: true
-  batch:
-    initialize-schema: always
-    schema: classpath:schema-sqlserver.sql
+#  batch:
+#    initialize-schema: always
+#    schema: classpath:schema-sqlserver.sql
 
 
 #    schema:
