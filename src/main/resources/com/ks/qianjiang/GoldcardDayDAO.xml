@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ks.qianjiang.mapper.GoldcardDayDAO">
+  <resultMap id="BaseResultMap" type="com.ks.qianjiang.model.GoldcardDay">
+    <id column="ID" jdbcType="INTEGER" property="ID" />
+    <result column="useDate" jdbcType="VARCHAR" property="useDate" />
+    <result column="price" jdbcType="VARCHAR" property="price" />
+    <result column="useGas" jdbcType="VARCHAR" property="useGas" />
+    <result column="useAmount" jdbcType="VARCHAR" property="useAmount" />
+    <result column="deviceId" jdbcType="VARCHAR" property="deviceId" />
+    <result column="meterNo" jdbcType="VARCHAR" property="meterNo" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, useDate, price, useGas, useAmount, deviceId, meterNo
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from KS_DataBase3.0_QJ..GoldCard_Day
+    where ID = #{ID,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from KS_DataBase3.0_QJ..GoldCard_Day
+    where ID = #{ID,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.ks.qianjiang.model.GoldcardDay">
+    insert into KS_DataBase3.0_QJ..GoldCard_Day (ID, useDate, price, 
+      useGas, useAmount, deviceId, 
+      meterNo)
+    values (#{ID,jdbcType=INTEGER}, #{useDate,jdbcType=VARCHAR}, #{price,jdbcType=VARCHAR}, 
+      #{useGas,jdbcType=VARCHAR}, #{useAmount,jdbcType=VARCHAR}, #{deviceId,jdbcType=VARCHAR}, 
+      #{meterNo,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.ks.qianjiang.model.GoldcardDay">
+    insert into KS_DataBase3.0_QJ..GoldCard_Day
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="ID != null">
+        ID,
+      </if>
+      <if test="useDate != null">
+        useDate,
+      </if>
+      <if test="price != null">
+        price,
+      </if>
+      <if test="useGas != null">
+        useGas,
+      </if>
+      <if test="useAmount != null">
+        useAmount,
+      </if>
+      <if test="deviceId != null">
+        deviceId,
+      </if>
+      <if test="meterNo != null">
+        meterNo,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="ID != null">
+        #{ID,jdbcType=INTEGER},
+      </if>
+      <if test="useDate != null">
+        #{useDate,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null">
+        #{price,jdbcType=VARCHAR},
+      </if>
+      <if test="useGas != null">
+        #{useGas,jdbcType=VARCHAR},
+      </if>
+      <if test="useAmount != null">
+        #{useAmount,jdbcType=VARCHAR},
+      </if>
+      <if test="deviceId != null">
+        #{deviceId,jdbcType=VARCHAR},
+      </if>
+      <if test="meterNo != null">
+        #{meterNo,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ks.qianjiang.model.GoldcardDay">
+    update KS_DataBase3.0_QJ..GoldCard_Day
+    <set>
+      <if test="useDate != null">
+        useDate = #{useDate,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null">
+        price = #{price,jdbcType=VARCHAR},
+      </if>
+      <if test="useGas != null">
+        useGas = #{useGas,jdbcType=VARCHAR},
+      </if>
+      <if test="useAmount != null">
+        useAmount = #{useAmount,jdbcType=VARCHAR},
+      </if>
+      <if test="deviceId != null">
+        deviceId = #{deviceId,jdbcType=VARCHAR},
+      </if>
+      <if test="meterNo != null">
+        meterNo = #{meterNo,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{ID,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ks.qianjiang.model.GoldcardDay">
+    update KS_DataBase3.0_QJ..GoldCard_Day
+    set useDate = #{useDate,jdbcType=VARCHAR},
+      price = #{price,jdbcType=VARCHAR},
+      useGas = #{useGas,jdbcType=VARCHAR},
+      useAmount = #{useAmount,jdbcType=VARCHAR},
+      deviceId = #{deviceId,jdbcType=VARCHAR},
+      meterNo = #{meterNo,jdbcType=VARCHAR}
+    where ID = #{ID,jdbcType=INTEGER}
+  </update>
+  <insert id="insertUnique" parameterType="com.ks.qianjiang.model.GoldcardDay">
+      IF NOT EXISTS(SELECT 1 FROM GoldCard_Day  WHERE meterNo = #{meterNo} and useDate = #{useDate})
+      BEGIN
+        insert into GoldCard_Day (useDate,price,useGas,useAmount,deviceId,meterNo)values ( #{useDate},#{price},#{useGas},#{useAmount},#{deviceId},#{meterNo});
+      END
+      ELSE
+      BEGIN
+        UPDATE GoldCard_Day set useDate=#{useDate},price=#{price},useGas=#{useGas},useAmount=#{useAmount},deviceId=#{deviceId},meterNo=#{meterNo} where meterNo = #{meterNo} and useDate = #{useDate};
+      END
+  </insert>
+</mapper>

@@ -21,13 +21,16 @@
     <result column="balance" jdbcType="VARCHAR" property="balance" />
     <result column="meterNo" jdbcType="VARCHAR" property="meterNo" />
     <result column="price" jdbcType="VARCHAR" property="price" />
+    <result column="rechargeCount" jdbcType="VARCHAR" property="rechargeCount" />
+    <result column="voltage" jdbcType="VARCHAR" property="voltage" />
+    <result column="signalStrength" jdbcType="VARCHAR" property="signalStrength" />
     <result column="lastRechargeAmount" jdbcType="VARCHAR" property="lastRechargeAmount" />
     <result column="lastRechargeDate" jdbcType="VARCHAR" property="lastRechargeDate" />
   </resultMap>
   <sql id="Base_Column_List">
     ID, serialNo, meterState, setUpTime, beseNum, readingNum, userName, address, userType, 
     deviceId, valveState, sumUseGas, sumUseMoney, priceCode, sumRechargeAomunt, lastReadingTime, 
-    balance, meterNo, price, lastRechargeAmount, lastRechargeDate
+    balance, meterNo, price, rechargeCount,voltage,signalStrength,lastRechargeAmount, lastRechargeDate
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
@@ -46,7 +49,7 @@
       deviceId, valveState, sumUseGas, 
       sumUseMoney, priceCode, sumRechargeAomunt, 
       lastReadingTime, balance, meterNo, 
-      price, lastRechargeAmount, lastRechargeDate
+      price, rechargeCount,voltage,signalStrength,lastRechargeAmount, lastRechargeDate
       )
     values ( #{serialNo,jdbcType=VARCHAR}, #{meterState,jdbcType=VARCHAR},
       #{setUpTime,jdbcType=VARCHAR}, #{beseNum,jdbcType=VARCHAR}, #{readingNum,jdbcType=VARCHAR}, 
@@ -54,7 +57,7 @@
       #{deviceId,jdbcType=VARCHAR}, #{valveState,jdbcType=VARCHAR}, #{sumUseGas,jdbcType=VARCHAR}, 
       #{sumUseMoney,jdbcType=VARCHAR}, #{priceCode,jdbcType=VARCHAR}, #{sumRechargeAomunt,jdbcType=VARCHAR}, 
       #{lastReadingTime,jdbcType=VARCHAR}, #{balance,jdbcType=VARCHAR}, #{meterNo,jdbcType=VARCHAR}, 
-      #{price,jdbcType=VARCHAR}, #{lastRechargeAmount,jdbcType=VARCHAR}, #{lastRechargeDate,jdbcType=VARCHAR}
+      #{price,jdbcType=VARCHAR}, #{rechargeCount,jdbcType=VARCHAR},#{voltage,jdbcType=VARCHAR},#{signalStrength,jdbcType=VARCHAR},#{lastRechargeAmount,jdbcType=VARCHAR}, #{lastRechargeDate,jdbcType=VARCHAR}
       )
   </insert>
   <insert id="insertSelective" parameterType="com.ks.qianjiang.model.GoldcardInfo">
@@ -116,6 +119,15 @@
       </if>
       <if test="price != null">
         price,
+      </if>
+      <if test="rechargeCount != null">
+        rechargeCount,
+      </if>
+      <if test="voltage != null">
+        voltage,
+      </if>
+      <if test="signalStrength != null">
+        signalStrength,
       </if>
       <if test="lastRechargeAmount != null">
         lastRechargeAmount,
@@ -182,6 +194,15 @@
       <if test="price != null">
         #{price,jdbcType=VARCHAR},
       </if>
+      <if test="rechargeCount != null">
+        #{rechargeCount,jdbcType=VARCHAR},
+      </if>
+      <if test="voltage != null">
+        #{voltage,jdbcType=VARCHAR},
+      </if>
+      <if test="signalStrength != null">
+        #{signalStrength,jdbcType=VARCHAR},
+      </if>
       <if test="lastRechargeAmount != null">
         #{lastRechargeAmount,jdbcType=VARCHAR},
       </if>
@@ -247,6 +268,15 @@
       <if test="price != null">
         price = #{price,jdbcType=VARCHAR},
       </if>
+      <if test="rechargeCount != null">
+        rechargeCount = #{rechargeCount,jdbcType=VARCHAR},
+      </if>
+      <if test="voltage != null">
+        voltage = #{voltage,jdbcType=VARCHAR},
+      </if>
+      <if test="signalStrength != null">
+        signalStrength = #{signalStrength,jdbcType=VARCHAR},
+      </if>
       <if test="lastRechargeAmount != null">
         lastRechargeAmount = #{lastRechargeAmount,jdbcType=VARCHAR},
       </if>
@@ -276,6 +306,9 @@
       balance = #{balance,jdbcType=VARCHAR},
       meterNo = #{meterNo,jdbcType=VARCHAR},
       price = #{price,jdbcType=VARCHAR},
+      rechargeCount = #{rechargeCount,jdbcType=VARCHAR},
+      voltage = #{voltage,jdbcType=VARCHAR},
+      signalStrength = #{signalStrength,jdbcType=VARCHAR},
       lastRechargeAmount = #{lastRechargeAmount,jdbcType=VARCHAR},
       lastRechargeDate = #{lastRechargeDate,jdbcType=VARCHAR}
     where ID = #{ID,jdbcType=INTEGER}
@@ -300,6 +333,9 @@
     ,[balance]
     ,[meterNo]
     ,[price]
+    ,[rechargeCount]
+    ,[voltage]
+    ,[signalStrength]
     ,[lastRechargeAmount]
     ,[lastRechargeDate])
     VALUES
@@ -323,6 +359,9 @@
       #{element.balance},
       #{element.meterNo},
       #{element.price},
+      #{element.rechargeCount},
+      #{element.voltage},
+      #{element.signalStrength},
       #{element.lastRechargeAmount},
       #{element.lastRechargeDate}
     </foreach>
@@ -348,6 +387,9 @@
       ,balance
       ,meterNo
       ,price
+      ,rechargeCount
+      ,voltage
+      ,signalStrength
       ,lastRechargeAmount
       ,lastRechargeDate)values ( #{serialNo},#{meterState}
       ,#{setUpTime}
@@ -366,6 +408,9 @@
       ,#{balance}
       ,#{meterNo}
       ,#{price}
+      ,#{rechargeCount}
+      ,#{voltage}
+      ,#{signalStrength}
       ,#{lastRechargeAmount}
       ,#{lastRechargeDate});
       END
@@ -389,6 +434,9 @@
       ,balance=#{balance}
       ,meterNo=#{meterNo}
       ,price=#{price}
+      ,rechargeCount=#{rechargeCount}
+      ,voltage=#{voltage}
+      ,signalStrength=#{signalStrength}
       ,lastRechargeAmount=#{lastRechargeAmount}
       ,lastRechargeDate=#{lastRechargeDate}  where meterNo = #{meterNo};
       END

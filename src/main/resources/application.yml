@@ -8,6 +8,7 @@ goldcard:
   cronInfo: 0 0 15 * * ?
   getMeterRealDataTime: 30000
   getMeterInfoDateTime: 86400000
+  getMeterDayDateTime: 3600000
 spring:
   #SMTP TEST
   mail:

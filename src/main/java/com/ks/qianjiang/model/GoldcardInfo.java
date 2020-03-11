@@ -44,6 +44,10 @@ public class GoldcardInfo implements Serializable {
     private String meterNo;
 
     private String price;
+    private String rechargeCount;
+    private String voltage;
+    private String signalStrength;
+
 
     private String lastRechargeAmount;
 
@@ -202,7 +206,29 @@ public class GoldcardInfo implements Serializable {
     public void setPrice(String price) {
         this.price = price;
     }
+    public String getRechargeCount() {
+        return rechargeCount;
+    }
 
+    public void setRechargeCount(String rechargeCount) {
+        this.rechargeCount = rechargeCount;
+    }
+
+    public String getVoltage() {
+        return voltage;
+    }
+
+    public void setVoltage(String voltage) {
+        this.voltage = voltage;
+    }
+
+    public String getSignalStrength() {
+        return signalStrength;
+    }
+
+    public void setSignalStrength(String signalStrength) {
+        this.signalStrength = signalStrength;
+    }
     public String getLastRechargeAmount() {
         return lastRechargeAmount;
     }
@@ -250,6 +276,9 @@ public class GoldcardInfo implements Serializable {
             && (this.getBalance() == null ? other.getBalance() == null : this.getBalance().equals(other.getBalance()))
             && (this.getMeterNo() == null ? other.getMeterNo() == null : this.getMeterNo().equals(other.getMeterNo()))
             && (this.getPrice() == null ? other.getPrice() == null : this.getPrice().equals(other.getPrice()))
+            && (this.getRechargeCount() == null ? other.getRechargeCount() == null : this.getRechargeCount().equals(other.getRechargeCount()))
+            && (this.getVoltage() == null ? other.getVoltage() == null : this.getVoltage().equals(other.getVoltage()))
+            && (this.getSignalStrength() == null ? other.getSignalStrength() == null : this.getSignalStrength().equals(other.getSignalStrength()))
             && (this.getLastRechargeAmount() == null ? other.getLastRechargeAmount() == null : this.getLastRechargeAmount().equals(other.getLastRechargeAmount()))
             && (this.getLastRechargeDate() == null ? other.getLastRechargeDate() == null : this.getLastRechargeDate().equals(other.getLastRechargeDate()));
     }
@@ -277,6 +306,9 @@ public class GoldcardInfo implements Serializable {
         result = prime * result + ((getBalance() == null) ? 0 : getBalance().hashCode());
         result = prime * result + ((getMeterNo() == null) ? 0 : getMeterNo().hashCode());
         result = prime * result + ((getPrice() == null) ? 0 : getPrice().hashCode());
+        result = prime * result + ((getRechargeCount() == null) ? 0 : getRechargeCount().hashCode());
+        result = prime * result + ((getVoltage() == null) ? 0 : getVoltage().hashCode());
+        result = prime * result + ((getSignalStrength() == null) ? 0 : getSignalStrength().hashCode());
         result = prime * result + ((getLastRechargeAmount() == null) ? 0 : getLastRechargeAmount().hashCode());
         result = prime * result + ((getLastRechargeDate() == null) ? 0 : getLastRechargeDate().hashCode());
         return result;

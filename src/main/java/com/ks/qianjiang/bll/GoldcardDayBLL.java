@@ -3,21 +3,23 @@ package com.ks.qianjiang.bll;
 import com.google.gson.Gson;
 import com.ks.qianjiang.Util.DESUtil;
 import com.ks.qianjiang.config.GoldcardConfig;
+import com.ks.qianjiang.model.GoldcardDay;
 import com.ks.qianjiang.model.GoldcardInfo;
 import com.ks.qianjiang.model.GoldcardReal;
+import com.ks.qianjiang.service.GoldcardDayService;
 import com.ks.qianjiang.service.GoldcardInfoService;
 import com.ks.qianjiang.service.GoldcardService;
 import org.apache.commons.httpclient.HttpClient;
 import org.apache.commons.httpclient.methods.PostMethod;
 import org.apache.commons.httpclient.methods.RequestEntity;
 import org.apache.commons.httpclient.methods.StringRequestEntity;
+import org.apache.commons.lang.time.DateUtils;
 import org.codehaus.jettison.json.JSONArray;
 import org.codehaus.jettison.json.JSONException;
 import org.codehaus.jettison.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.scheduling.annotation.Async;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 import org.yaml.snakeyaml.Yaml;
@@ -29,68 +31,54 @@ import java.text.SimpleDateFormat;
 import java.util.*;
 
 @Component
-public class GoldcardInfoBLL {
-
+public class GoldcardDayBLL {
+    Logger logger = LoggerFactory.getLogger(getClass());
     @Autowired
-    GoldcardInfoService goldcardInfoService;
-
+    GoldcardDayService goldcardDayService;
     @Autowired
     GoldcardService goldcardService;
-    Logger logger = LoggerFactory.getLogger(getClass());
-    //2.3.14 表具详细信息查询   @Async
-    //@Scheduled(fixedRateString ="${goldcard.getMeterRealDataTime}", initialDelay=10000)
-    //0 0 1 * * ?每天凌晨执行一次
-    //@Scheduled(cron ="${goldcard.cronInfo}")
-    @Scheduled(fixedRateString ="${goldcard.getMeterInfoDateTime}", initialDelay=30000)
-    public void getMeterInfData(){
+    @Scheduled(fixedRateString ="${goldcard.getMeterDayDateTime}", initialDelay=20000)
+    public void getMeterInfData() throws JSONException {
         //List<Map<String,Object>>  aMap =
         List<Map<String, Object>> list=  goldcardService.goldcardRealDAO.userNO_List(); //获取所有表编号和用户编号
         ArrayList<GoldcardInfo> goldcards = new ArrayList<GoldcardInfo>(100); //有100条数据插入到数据库
         for(Map<String,Object> obj:list){
 
-          String data= this.postRequest(obj.get("userArchivesNum").toString(),obj.get("gasMeterNo").toString());
+         String data= this.postRequest(obj.get("userArchivesNum").toString(),obj.get("gasMeterNo").toString());
+
+            //String data= this.postRequest("202003031503","202003031503");
 
             logger.info("Error", data);
             // String response = new String(post.getResponseBody(),"UTF-8");
             //logger.info(response);
-            try {
-                JSONObject jsonObject = new JSONObject(data);
 
-                if(jsonObject.get("echoCode").equals("0000") ){
+            final JSONObject jsonObject =  new JSONObject(data);
+            if(jsonObject.get("echoCode").equals("0000") ){
                     JSONObject echoMsgObject = (JSONObject) jsonObject.get("echoMsg");
-                   {
-                       //goldcardInfoService.insertWebData(echoMsgObject);
-                      goldcardInfoService.insertUniqueWebData(echoMsgObject);
-                      // GoldcardInfo info = goldcardInfoService.parseObj(echoMsgObject);
-                       //goldcards.add(info);
+                    JSONArray listData = (JSONArray)echoMsgObject.get("gasData");
+                    for (int i=0; i < listData.length(); i++) {
+
+                        try {
+                            goldcardDayService.insertUniqueWebData( listData.getJSONObject(i));
+                            logger.info("成功每日用气量:"+listData.getJSONObject(i));
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                            logger.info("失败每日用气量:"+listData.getJSONObject(i));
+                        }
+                    }
+
                     }
                     logger.info("成功:"+obj.get("gasMeterNo").toString()+":"+data);
                     //post.releaseConnection();
 
-                }else{
-                    logger.info("错误:"+obj.get("gasMeterNo").toString());
-                }
 
 
-            }catch (JSONException err){
-                logger.info("Error", err.toString());
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-
-//            if(goldcards.size()>=100){
-//                //有一百条数据，插入SQLServer
-//                goldcardInfoService.insertGoldcardInfoList(goldcards);
-//                goldcards.clear();
-//            }
         }//end of for
 
-        //刚好整数，还是判断下
-//        if(goldcards.size()>0){
-//            goldcardInfoService.insertGoldcardInfoList(goldcards);
-//            goldcards.clear();
-//        }
+
     }
+
+    //发送日用气量请求
     public String postRequest(String userNo,String meterNo) {
         logger.info(new Throwable()
                 .getStackTrace()[0]
@@ -100,7 +88,7 @@ public class GoldcardInfoBLL {
                 .getClassLoader()
                 .getResourceAsStream("goldcard.yml");
         GoldcardConfig goldcardConfig= yaml.loadAs(inputStream,GoldcardConfig.class);
-        String url = goldcardConfig.getUrl()+"v2/collect/meter/1014";
+        String url = goldcardConfig.getUrl()+"v1/collect/meter/1015";
 
         String appCode = goldcardConfig.getAppCode();
         String appSecret = goldcardConfig.getAppSecret();
@@ -126,15 +114,31 @@ public class GoldcardInfoBLL {
 
         Map<String, Object> map = new HashMap<String, Object>();
         map.put("serialNo", DESUtil.getRandomString(32));
-
+        map.put("userNo", userNo);
         map.put("userName","");
         map.put("deviceId","");
         map.put("factorNo", goldcardConfig.getFactorNo());
-
-        map.put("companyCode", goldcardConfig.getCompanyCode());
-        map.put("userNo", userNo);
         map.put("meterNo", meterNo);
+        Date dateStart = DateUtils.addDays(new Date(), -61);
+        SimpleDateFormat sdfDD = new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat sdfMonth = new SimpleDateFormat("yyyy-MM");
+        String strMonth =  sdfMonth.format(dateStart);
 
+
+        //map.put("startTime",sdfStartTime.format(date));
+        Date dateEnd = DateUtils.addDays(new Date(), -1);
+        String strEndMonth = getLastMonth(sdfDD.format(dateEnd));
+        if(strMonth.equals(strEndMonth)){
+            map.put("startTime",sdfDD.format(dateStart));
+        }else {
+            map.put("startTime",strEndMonth+"-01");
+        }
+
+    ;
+        //sdfEndTime.
+        //sdfEndTime.
+        map.put("endTime",sdfDD.format(dateEnd));
+        map.put("companyCode", goldcardConfig.getCompanyCode());
         String jsondata = new Gson().toJson(map);
         logger.info(jsondata);
         //Thread.sleep(10);
@@ -163,8 +167,29 @@ public class GoldcardInfoBLL {
         }
         return response;
 
-
-
-
     }
+
+/**
+     * 获取任意时间的上一个月
+     * 描述:<描述函数实现的功能>.
+     * @param repeatDate
+     * @return
+     */
+public  String getLastMonth(String repeatDate) {
+        String lastMonth = "";
+        Calendar cal = Calendar.getInstance();
+        SimpleDateFormat dft = new SimpleDateFormat("yyyy-MM");
+        int year = Integer.parseInt(repeatDate.substring(0, 4));
+        String monthsString = repeatDate.substring(5, 7);
+        int month;
+        if ("0".equals(monthsString.substring(0, 1))) {
+        month = Integer.parseInt(monthsString.substring(1, 2));
+        } else {
+        month = Integer.parseInt(monthsString.substring(0, 2));
+        }
+        cal.set(year,month-2,Calendar.DATE);
+        lastMonth = dft.format(cal.getTime());
+        return lastMonth;
+ }
+
 }
