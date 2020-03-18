@@ -96,6 +96,5 @@ public class GoldcardRealBLL {
         }catch (JSONException err){
             logger.info("Error", err.toString());
         }
-
     }
 }

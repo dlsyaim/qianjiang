@@ -66,13 +66,9 @@ public class GoldcardDayBLL {
                             logger.info("失败每日用气量:"+listData.getJSONObject(i));
                         }
                     }
-
-                    }
+            }
                     logger.info("成功:"+obj.get("gasMeterNo").toString()+":"+data);
                     //post.releaseConnection();
-
-
-
         }//end of for
 
 
